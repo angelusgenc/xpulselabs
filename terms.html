@@ -1,36 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Terms and Conditions - X Pulse Pro</title>
 <style>
-body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; line-height: 1.6; }
-h1 { margin-bottom: 20px; }
+:root {
+  --bg: #07101d;
+  --panel: rgba(10, 21, 40, 0.86);
+  --panel-2: #0d1a31;
+  --line: rgba(255,255,255,0.08);
+  --text: #eef4ff;
+  --muted: #a9b7d3;
+  --blue: #39bdf8;
+  --green: #2fd06d;
+  --shadow: 0 20px 60px rgba(0,0,0,.34);
+  --radius: 24px;
+  --max: 980px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(57,189,248,0.16), transparent 26%),
+    radial-gradient(circle at 88% 18%, rgba(47,208,109,0.10), transparent 22%),
+    linear-gradient(180deg, #08101d 0%, #050b15 100%);
+  line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+.container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(14px);
+  background: rgba(5,11,21,.66);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 74px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+  background: linear-gradient(135deg, rgba(57,189,248,.28), rgba(47,208,109,.18));
+  border: 1px solid rgba(255,255,255,.08);
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: 900;
+}
+.brand span { font-size: 1.15rem; }
+.nav-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--line);
+}
+.lang-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 800;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: .18s ease;
+}
+.lang-btn.active {
+  background: linear-gradient(135deg, var(--blue), #62d2ff);
+  color: #03101d;
+  box-shadow: 0 8px 18px rgba(57,189,248,.18);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  border: 1px solid transparent;
+  transition: .18s ease;
+  cursor: pointer;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), #62d2ff);
+  color: #03101d;
+  box-shadow: 0 12px 26px rgba(57,189,248,.24);
+}
+.hero { padding: 42px 0 20px; }
+.eyebrow {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(57,189,248,.10);
+  border: 1px solid rgba(57,189,248,.22);
+  color: #c9ebff;
+  font-size: .92rem;
+  margin-bottom: 18px;
+}
+.page-card {
+  background: linear-gradient(180deg, rgba(12,24,46,.85), rgba(7,16,29,.9));
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+.lead {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 760px;
+}
+.section {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.section:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 28px;
+}
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+p, li { color: var(--text); }
+ul { margin: 0; padding-left: 20px; }
+li { margin: 8px 0; }
+.muted { color: var(--muted); }
+.callout {
+  margin-top: 18px;
+  padding: 15px 16px;
+  border-left: 3px solid var(--blue);
+  background: rgba(255,255,255,.03);
+  color: #d7eaff;
+  border-radius: 14px;
+  font-size: .98rem;
+}
+.footer {
+  padding: 28px 0 42px;
+  color: #8294b8;
+  font-size: .94rem;
+  text-align: center;
+}
+@media (max-width: 640px) {
+  .container { width: min(var(--max), calc(100% - 20px)); }
+  .nav { flex-wrap: wrap; padding: 12px 0; }
+  .nav-actions { width: 100%; justify-content: space-between; }
+  .page-card { padding: 20px; }
+}
 </style>
 </head>
 <body>
-<h1>Terms and Conditions</h1>
-<p><strong>Last updated:</strong> March 2026</p>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="/index.html">
+      <div class="brand-mark">X</div>
+      <span>X Pulse Pro</span>
+    </a>
+    <div class="nav-actions">
+      <div class="lang-switch">
+        <button class="lang-btn" data-setlang="tr" onclick="setLang('tr')">TR</button>
+        <button class="lang-btn" data-setlang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="btn btn-primary" href="/index.html" data-lang="en">← Back to Home</a>
+      <a class="btn btn-primary" href="/index.html" data-lang="tr">← Ana Sayfaya Dön</a>
+    </div>
+  </div>
+</header>
 
-<p>Welcome to X Pulse Pro.</p>
+<main class="hero">
+  <div class="container">
+    <div class="page-card">
+      <div class="eyebrow" data-lang="en">Legal Information</div>
+      <div class="eyebrow" data-lang="tr">Yasal Bilgilendirme</div>
 
-<h3>1. Use of the Software</h3>
-<p>X Pulse Pro is a desktop automation tool designed to help users schedule and manage their own social media content.</p>
+      <h1 data-lang="en">Terms and Conditions</h1>
+      <h1 data-lang="tr">Şartlar ve Koşullar</h1>
 
-<h3>2. License</h3>
-<p>You are granted a non-exclusive, non-transferable license to use the software.</p>
+      <p class="lead" data-lang="en">Please read these terms carefully before purchasing, downloading, or using X Pulse Pro.</p>
+      <p class="lead" data-lang="tr">X Pulse Pro’yu satın almadan, indirmeden veya kullanmadan önce lütfen bu şartları dikkatlice okuyun.</p>
 
-<h3>3. Payments</h3>
-<p>Access is provided via paid plans.</p>
+      <p class="muted" data-lang="en"><strong>Last updated:</strong> March 2026</p>
+      <p class="muted" data-lang="tr"><strong>Son güncelleme:</strong> Mart 2026</p>
 
-<h3>4. No Guarantees</h3>
-<p>We do not guarantee specific growth or results.</p>
+      <section class="section" data-lang="en"><h2>1. Use of the Software</h2><p>X Pulse Pro is a desktop automation tool designed to help users prepare, schedule, and manage their own social media content on X more efficiently.</p><p>You agree to use the software in compliance with applicable laws and platform rules, including X policies.</p></section>
+<section class="section" data-lang="en"><h2>2. License</h2><p>When you purchase a valid plan, you receive a limited, non-exclusive, non-transferable license to use X Pulse Pro.</p><ul><li>You may not resell, redistribute, or share your license key.</li><li>You may not reverse engineer, copy, or modify the software for redistribution.</li></ul></section>
+<section class="section" data-lang="en"><h2>3. Plans, Payments, and Access</h2><p>X Pulse Pro may be sold as a one-time purchase or as a subscription plan, depending on the offer shown at checkout.</p><p>Access is granted after successful payment and may require license activation inside the application.</p></section>
+<section class="section" data-lang="en"><h2>4. No Guarantee of Platform Results</h2><p>We do not guarantee follower growth, engagement, reach, or any specific business result from using the software.</p></section>
+<section class="section" data-lang="en"><h2>5. Third-Party Platforms</h2><p>X Pulse Pro works alongside third-party services such as X. We are not responsible for outages, policy changes, account restrictions, or feature limitations imposed by third-party platforms.</p></section>
+<section class="section" data-lang="en"><h2>6. Updates and Changes</h2><p>We may update the software, pricing, features, and these terms from time to time to improve the product or maintain compliance.</p></section>
+<section class="section" data-lang="en"><h2>7. Contact</h2><p>If you need support or have questions about your license, contact <strong>support@xpulselabs.com</strong>.</p></section>
+      <section class="section" data-lang="tr"><h2>1. Yazılımın Kullanımı</h2><p>X Pulse Pro, kullanıcıların X üzerindeki sosyal medya içeriklerini daha verimli şekilde hazırlamasına, planlamasına ve yönetmesine yardımcı olan bir masaüstü otomasyon aracıdır.</p><p>Yazılımı, yürürlükteki yasalar ve X platform kuralları dahil olmak üzere ilgili kurallara uygun şekilde kullanmayı kabul edersiniz.</p></section>
+<section class="section" data-lang="tr"><h2>2. Lisans</h2><p>Geçerli bir plan satın aldığınızda, size X Pulse Pro kullanımı için sınırlı, münhasır olmayan ve devredilemez bir lisans verilir.</p><ul><li>Lisans anahtarınızı satamaz, paylaşamaz veya yeniden dağıtamazsınız.</li><li>Yazılımı tersine mühendislik ile inceleyemez, kopyalayamaz veya yeniden dağıtım amacıyla değiştiremezsiniz.</li></ul></section>
+<section class="section" data-lang="tr"><h2>3. Planlar, Ödemeler ve Erişim</h2><p>X Pulse Pro, satış sayfasında belirtilen duruma göre tek seferlik satın alma veya abonelik planı olarak sunulabilir.</p><p>Başarılı ödeme sonrasında erişim sağlanır ve uygulama içinde lisans aktivasyonu gerekebilir.</p></section>
+<section class="section" data-lang="tr"><h2>4. Sonuç Garantisi Yoktur</h2><p>Yazılımın kullanımıyla takipçi artışı, etkileşim, erişim veya belirli bir ticari sonuç garanti edilmez.</p></section>
+<section class="section" data-lang="tr"><h2>5. Üçüncü Taraf Platformlar</h2><p>X Pulse Pro, X gibi üçüncü taraf servislerle birlikte çalışır. Üçüncü taraf platformların kesintileri, politika değişiklikleri, hesap kısıtlamaları veya özellik sınırlamaları bizim sorumluluğumuzda değildir.</p></section>
+<section class="section" data-lang="tr"><h2>6. Güncellemeler ve Değişiklikler</h2><p>Ürünü geliştirmek veya uyumluluğu korumak amacıyla yazılımı, fiyatları, özellikleri ve bu şartları zaman zaman güncelleyebiliriz.</p></section>
+<section class="section" data-lang="tr"><h2>7. İletişim</h2><p>Destek veya lisansınızla ilgili sorular için <strong>support@xpulselabs.com</strong> adresine ulaşabilirsiniz.</p></section>
 
-<h3>5. Liability</h3>
-<p>We are not responsible for account restrictions or platform changes.</p>
+      <div class="callout" data-lang="en">
+        For questions about these terms, privacy, billing, or support, contact us at <strong>support@xpulselabs.com</strong>.
+      </div>
+      <div class="callout" data-lang="tr">
+        Bu metinler, gizlilik, ödeme veya destek ile ilgili sorularınız için bize <strong>support@xpulselabs.com</strong> adresinden ulaşabilirsiniz.
+      </div>
+    </div>
+  </div>
+</main>
 
-<h3>6. Contact</h3>
-<p>support@xpulselabs.com</p>
+<footer class="footer">
+  <div class="container">
+    <span data-lang="en">© XPulse Labs — X Pulse Pro</span>
+    <span data-lang="tr">© XPulse Labs — X Pulse Pro</span>
+  </div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.setlang === lang);
+  });
+  localStorage.setItem('xpulse_legal_lang', lang);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('xpulse_legal_lang') || 'en';
+  setLang(saved);
+});
+</script>
 
 </body>
 </html>

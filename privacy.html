@@ -1,31 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Privacy Policy - X Pulse Pro</title>
 <style>
-body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; line-height: 1.6; }
-h1 { margin-bottom: 20px; }
+:root {
+  --bg: #07101d;
+  --panel: rgba(10, 21, 40, 0.86);
+  --panel-2: #0d1a31;
+  --line: rgba(255,255,255,0.08);
+  --text: #eef4ff;
+  --muted: #a9b7d3;
+  --blue: #39bdf8;
+  --green: #2fd06d;
+  --shadow: 0 20px 60px rgba(0,0,0,.34);
+  --radius: 24px;
+  --max: 980px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(57,189,248,0.16), transparent 26%),
+    radial-gradient(circle at 88% 18%, rgba(47,208,109,0.10), transparent 22%),
+    linear-gradient(180deg, #08101d 0%, #050b15 100%);
+  line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+.container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(14px);
+  background: rgba(5,11,21,.66);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 74px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+  background: linear-gradient(135deg, rgba(57,189,248,.28), rgba(47,208,109,.18));
+  border: 1px solid rgba(255,255,255,.08);
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: 900;
+}
+.brand span { font-size: 1.15rem; }
+.nav-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--line);
+}
+.lang-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 800;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: .18s ease;
+}
+.lang-btn.active {
+  background: linear-gradient(135deg, var(--blue), #62d2ff);
+  color: #03101d;
+  box-shadow: 0 8px 18px rgba(57,189,248,.18);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  border: 1px solid transparent;
+  transition: .18s ease;
+  cursor: pointer;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), #62d2ff);
+  color: #03101d;
+  box-shadow: 0 12px 26px rgba(57,189,248,.24);
+}
+.hero { padding: 42px 0 20px; }
+.eyebrow {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(57,189,248,.10);
+  border: 1px solid rgba(57,189,248,.22);
+  color: #c9ebff;
+  font-size: .92rem;
+  margin-bottom: 18px;
+}
+.page-card {
+  background: linear-gradient(180deg, rgba(12,24,46,.85), rgba(7,16,29,.9));
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+.lead {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 760px;
+}
+.section {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.section:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 28px;
+}
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+p, li { color: var(--text); }
+ul { margin: 0; padding-left: 20px; }
+li { margin: 8px 0; }
+.muted { color: var(--muted); }
+.callout {
+  margin-top: 18px;
+  padding: 15px 16px;
+  border-left: 3px solid var(--blue);
+  background: rgba(255,255,255,.03);
+  color: #d7eaff;
+  border-radius: 14px;
+  font-size: .98rem;
+}
+.footer {
+  padding: 28px 0 42px;
+  color: #8294b8;
+  font-size: .94rem;
+  text-align: center;
+}
+@media (max-width: 640px) {
+  .container { width: min(var(--max), calc(100% - 20px)); }
+  .nav { flex-wrap: wrap; padding: 12px 0; }
+  .nav-actions { width: 100%; justify-content: space-between; }
+  .page-card { padding: 20px; }
+}
 </style>
 </head>
 <body>
-<h1>Privacy Policy</h1>
-<p><strong>Last updated:</strong> March 2026</p>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="/index.html">
+      <div class="brand-mark">X</div>
+      <span>X Pulse Pro</span>
+    </a>
+    <div class="nav-actions">
+      <div class="lang-switch">
+        <button class="lang-btn" data-setlang="tr" onclick="setLang('tr')">TR</button>
+        <button class="lang-btn" data-setlang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="btn btn-primary" href="/index.html" data-lang="en">← Back to Home</a>
+      <a class="btn btn-primary" href="/index.html" data-lang="tr">← Ana Sayfaya Dön</a>
+    </div>
+  </div>
+</header>
 
-<h3>1. Information We Collect</h3>
-<p>We may collect your email address and basic usage data.</p>
+<main class="hero">
+  <div class="container">
+    <div class="page-card">
+      <div class="eyebrow" data-lang="en">Legal Information</div>
+      <div class="eyebrow" data-lang="tr">Yasal Bilgilendirme</div>
 
-<h3>2. How We Use Data</h3>
-<p>We use data to provide access and improve the product.</p>
+      <h1 data-lang="en">Privacy Policy</h1>
+      <h1 data-lang="tr">Gizlilik Politikası</h1>
 
-<h3>3. Security</h3>
-<p>We take reasonable measures to protect your data.</p>
+      <p class="lead" data-lang="en">This page explains what information we collect, how we use it, and how we protect it.</p>
+      <p class="lead" data-lang="tr">Bu sayfa hangi bilgileri topladığımızı, bunları nasıl kullandığımızı ve nasıl koruduğumuzu açıklar.</p>
 
-<h3>4. Third Parties</h3>
-<p>Payments are handled by providers such as Lemon Squeezy.</p>
+      <p class="muted" data-lang="en"><strong>Last updated:</strong> March 2026</p>
+      <p class="muted" data-lang="tr"><strong>Son güncelleme:</strong> Mart 2026</p>
 
-<h3>5. Contact</h3>
-<p>support@xpulselabs.com</p>
+      <section class="section" data-lang="en"><h2>1. Information We Collect</h2><p>We may collect limited information needed to operate the product, such as your email address, license details, and basic technical or usage data.</p><p>We do not collect or store your social media passwords.</p></section>
+<section class="section" data-lang="en"><h2>2. How We Use Information</h2><p>We use collected information to deliver access to the software, validate licenses, provide support, improve features, and maintain product security.</p></section>
+<section class="section" data-lang="en"><h2>3. Payment Providers and Third Parties</h2><p>Payments may be processed by third-party providers such as Lemon Squeezy. Their handling of billing and payment information is subject to their own policies.</p></section>
+<section class="section" data-lang="en"><h2>4. Data Security</h2><p>We take reasonable steps to protect the information we store, but no system can be guaranteed to be completely secure.</p></section>
+<section class="section" data-lang="en"><h2>5. Data Retention</h2><p>We keep information only as long as necessary for licensing, support, legal, or operational purposes.</p></section>
+<section class="section" data-lang="en"><h2>6. Your Rights</h2><p>You may contact us to request access to, correction of, or deletion of your personal data where applicable.</p></section>
+<section class="section" data-lang="en"><h2>7. Contact</h2><p>For privacy-related questions, contact <strong>support@xpulselabs.com</strong>.</p></section>
+      <section class="section" data-lang="tr"><h2>1. Topladığımız Bilgiler</h2><p>Ürünü çalıştırmak için gerekli olan sınırlı bilgileri toplayabiliriz. Buna e-posta adresiniz, lisans bilgileriniz ve temel teknik veya kullanım verileri dahil olabilir.</p><p>Sosyal medya şifrelerinizi toplamıyor veya saklamıyoruz.</p></section>
+<section class="section" data-lang="tr"><h2>2. Bilgileri Nasıl Kullanıyoruz</h2><p>Toplanan bilgileri yazılıma erişim sağlamak, lisans doğrulamak, destek sunmak, özellikleri geliştirmek ve ürün güvenliğini korumak için kullanırız.</p></section>
+<section class="section" data-lang="tr"><h2>3. Ödeme Sağlayıcıları ve Üçüncü Taraflar</h2><p>Ödemeler Lemon Squeezy gibi üçüncü taraf sağlayıcılar tarafından işlenebilir. Faturalama ve ödeme bilgilerinin işlenmesi kendi politikalarına tabidir.</p></section>
+<section class="section" data-lang="tr"><h2>4. Veri Güvenliği</h2><p>Sakladığımız bilgileri korumak için makul önlemler alırız; ancak hiçbir sistemin tamamen güvenli olduğu garanti edilemez.</p></section>
+<section class="section" data-lang="tr"><h2>5. Veri Saklama Süresi</h2><p>Bilgileri yalnızca lisanslama, destek, yasal yükümlülükler veya operasyonel ihtiyaçlar için gerekli olduğu sürece saklarız.</p></section>
+<section class="section" data-lang="tr"><h2>6. Haklarınız</h2><p>Uygulanabildiği durumlarda kişisel verilerinize erişim, düzeltme veya silme talebinde bulunmak için bizimle iletişime geçebilirsiniz.</p></section>
+<section class="section" data-lang="tr"><h2>7. İletişim</h2><p>Gizlilik ile ilgili sorular için <strong>support@xpulselabs.com</strong> adresine ulaşabilirsiniz.</p></section>
+
+      <div class="callout" data-lang="en">
+        For questions about these terms, privacy, billing, or support, contact us at <strong>support@xpulselabs.com</strong>.
+      </div>
+      <div class="callout" data-lang="tr">
+        Bu metinler, gizlilik, ödeme veya destek ile ilgili sorularınız için bize <strong>support@xpulselabs.com</strong> adresinden ulaşabilirsiniz.
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span data-lang="en">© XPulse Labs — X Pulse Pro</span>
+    <span data-lang="tr">© XPulse Labs — X Pulse Pro</span>
+  </div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.setlang === lang);
+  });
+  localStorage.setItem('xpulse_legal_lang', lang);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('xpulse_legal_lang') || 'en';
+  setLang(saved);
+});
+</script>
 
 </body>
 </html>
