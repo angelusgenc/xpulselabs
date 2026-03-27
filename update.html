@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XPulse Pro Updates</title>
+  <style>
+    :root {
+      --bg: #07101d;
+      --panel: rgba(10, 21, 40, 0.86);
+      --line: rgba(255,255,255,0.08);
+      --text: #eef4ff;
+      --muted: #a9b7d3;
+      --blue: #39bdf8;
+      --shadow: 0 20px 60px rgba(0,0,0,.34);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(57,189,248,0.16), transparent 26%),
+        radial-gradient(circle at 88% 18%, rgba(47,208,109,0.10), transparent 22%),
+        linear-gradient(180deg, #08101d 0%, #050b15 100%);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 50px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: #03101d;
+      background: linear-gradient(135deg, var(--blue), #62d2ff);
+      box-shadow: 0 10px 24px rgba(0,0,0,.28);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-weight: 800;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: .18s ease;
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--blue), #62d2ff);
+      color: #03101d;
+      box-shadow: 0 8px 18px rgba(57,189,248,.18);
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(12,24,46,.85), rgba(7,16,29,.9));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .sub {
+      margin: 0 auto;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .status-card {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+    }
+
+    .status-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin: 0 0 10px;
+    }
+
+    .status-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), #62d2ff);
+      color: #03101d;
+      box-shadow: 0 12px 26px rgba(57,189,248,.22);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      color: #8fa2c6;
+      font-size: .94rem;
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(980px, calc(100% - 20px)); }
+      .topbar { flex-wrap: wrap; }
+      .hero { padding: 24px 18px; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="https://xpulselabs.com">
+        <div class="brand-badge">X</div>
+        <span>X Pulse Pro</span>
+      </a>
+
+      <div class="lang-switch">
+        <button class="lang-btn active" id="btn-en" type="button">EN</button>
+        <button class="lang-btn" id="btn-tr" type="button">TR</button>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1 id="title">Updates</h1>
+      <p class="sub" id="subtitle">Check the latest app updates and download links here.</p>
+
+      <div class="status-card">
+        <div class="status-title" id="statusTitle">No update at this moment</div>
+        <p class="status-text" id="statusText">When a new version is available, it will appear here with a download button.</p>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-secondary" id="homeBtn" href="https://xpulselabs.com">← Back to Homepage</a>
+      </div>
+
+      <p class="footer-note" id="footerNote">Please replace your old files with the new version after downloading future updates.</p>
+    </section>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        title: 'Updates',
+        subtitle: 'Check the latest app updates and download links here.',
+        statusTitle: 'No update at this moment',
+        statusText: 'When a new version is available, it will appear here with a download button.',
+        homeBtn: '← Back to Homepage',
+        footerNote: 'Please replace your old files with the new version after downloading future updates.'
+      },
+      tr: {
+        title: 'Güncellemeler',
+        subtitle: 'Uygulamanın en güncel sürümlerini ve indirme bağlantılarını burada görebilirsiniz.',
+        statusTitle: 'Şu anda güncelleme yok',
+        statusText: 'Yeni bir sürüm yayınlandığında burada indirme butonuyla birlikte görünecektir.',
+        homeBtn: '← Ana Sayfaya Dön',
+        footerNote: 'İleride yeni sürümü indirdiğinizde eski dosyaların üzerine yenilerini koymanız yeterlidir.'
+      }
+    };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById('title').textContent = translations[lang].title;
+      document.getElementById('subtitle').textContent = translations[lang].subtitle;
+      document.getElementById('statusTitle').textContent = translations[lang].statusTitle;
+      document.getElementById('statusText').textContent = translations[lang].statusText;
+      document.getElementById('homeBtn').textContent = translations[lang].homeBtn;
+      document.getElementById('footerNote').textContent = translations[lang].footerNote;
+
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    }
+
+    document.getElementById('btn-en').addEventListener('click', () => setLang('en'));
+    document.getElementById('btn-tr').addEventListener('click', () => setLang('tr'));
+  </script>
+</body>
+</html>
