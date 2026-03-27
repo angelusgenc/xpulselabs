@@ -544,7 +544,7 @@
 
     .pricing {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
@@ -1001,17 +1001,29 @@
             <a class="btn btn-secondary" href="https://github.com/angelusgenc/xpulselabs/releases/download/v1.0/XPulsePro_Setup_v1_0_0.zip" data-i18n="downloadTrial">Download trial</a>
           </div>
 
-          <div class="price-card recommended">
-            <div class="pill" data-i18n="mainOption">Main option</div>
-            <h3 data-i18n="fullTitle">Full Access</h3>
-            <div class="amount" data-i18n="fullAmount">$7.99 /year</div>
-            <div class="per" data-i18n="fullPer">Unlock the full licensed experience.</div>
+          <div class="price-card">
+            <h3 data-i18n="monthlyTitle">Monthly</h3>
+            <div class="amount" data-i18n="monthlyAmount">$2.99 / month</div>
+            <div class="per" data-i18n="monthlyPer">Flexible monthly access with full licensed features.</div>
             <ul>
-              <li data-i18n="full1">Full desktop workflow</li>
-              <li data-i18n="full2">Bulk post preparation</li>
-              <li data-i18n="full3">CSV import and scheduling</li>
+              <li data-i18n="monthly1">Full desktop workflow</li>
+              <li data-i18n="monthly2">Bulk post preparation</li>
+              <li data-i18n="monthly3">CSV import and scheduling</li>
             </ul>
-            <a class="btn btn-primary" href="https://xpulselabs.gumroad.com/l/wzfihw" data-i18n="buyNowLower">Buy now</a>
+            <a class="btn btn-primary" href="https://xpulselabs.gumroad.com/l/wzfihw" data-i18n="monthlyBuy">Buy now</a>
+          </div>
+
+          <div class="price-card recommended">
+            <div class="pill" data-i18n="mainOption">Best value</div>
+            <h3 data-i18n="yearlyTitle">Yearly</h3>
+            <div class="amount" data-i18n="yearlyAmount">$14.99 / 600 TL</div>
+            <div class="per" data-i18n="yearlyPer">Save more with the annual plan and keep full access all year.</div>
+            <ul>
+              <li data-i18n="yearly1">Everything in the monthly plan</li>
+              <li data-i18n="yearly2">Better long-term value</li>
+              <li data-i18n="yearly3">One purchase for the full year</li>
+            </ul>
+            <a class="btn btn-primary" href="https://xpulselabs.gumroad.com/l/wzfihw" data-i18n="yearlyBuy">Buy yearly</a>
           </div>
         </div>
       </div>
@@ -1112,7 +1124,7 @@
         heroEyebrow: 'Desktop automation for X • Fast setup • Clean workflow',
         heroTitle: 'Prepare once. Schedule smart. Let X Pulse Pro keep posting.',
         heroDesc: 'X Pulse Pro is a desktop tool built for creators, marketers, and anyone who wants a cleaner X workflow. Write posts, import them in bulk, set your timing, and let the app handle the repetitive part.',
-        downloadFreeTrial: 'Download Free Trial', seeHowItWorks: 'See how it works', heroNote: '3-day free trial. Full access available from your checkout page.',
+        downloadFreeTrial: 'Download Free Trial', seeHowItWorks: 'See how it works', heroNote: '3-day free trial. Then choose monthly or yearly full access.',
         trust1Title: 'CSV import', trust1Desc: 'Bring in multiple posts at once instead of adding them one by one.',
         trust2Title: 'Smart intervals', trust2Desc: 'Use fixed times, random posting, or custom timing based on your workflow.',
         trust3Title: 'Text + media', trust3Desc: 'Mix text posts with media posts from the same desktop dashboard.',
@@ -1141,9 +1153,10 @@
         care1Title: 'Simple controls', care1Desc: 'Start, edit, import, clean up, and monitor without getting lost in menus.',
         care2Title: 'Better batching', care2Desc: 'Prepare more content in one sitting instead of constantly stopping to write the next post.',
         care3Title: 'Practical visibility', care3Desc: 'The selected post area and the log panel help you see what is happening without guessing.',
-        pricingTitle: 'Choose your starting point', pricingDesc: 'Start with the free trial, then move to full access when you are ready to use it as part of your regular workflow.',
+        pricingTitle: 'Choose your starting point', pricingDesc: 'Start with the free trial, then choose the plan that fits your workflow best.',
         trialTitle: 'Free Trial', trialAmount: '3 days', trialPer: 'Download it, use it, then decide.', trial1: 'Install the desktop app', trial2: 'Explore the interface', trial3: 'Test your process first', downloadTrial: 'Download trial',
-        mainOption: 'Main option', fullTitle: 'Full Access', fullAmount: '$7.99 /year', fullPer: 'Unlock the full licensed experience.', full1: 'Full desktop workflow', full2: 'Bulk post preparation', full3: 'CSV import and scheduling', buyNowLower: 'Buy now',
+        monthlyTitle: 'Monthly', monthlyAmount: '$2.99 / month', monthlyPer: 'Flexible monthly access with full licensed features.', monthly1: 'Full desktop workflow', monthly2: 'Bulk post preparation', monthly3: 'CSV import and scheduling', monthlyBuy: 'Buy now',
+        mainOption: 'Best value', yearlyTitle: 'Yearly', yearlyAmount: '$14.99 / year', yearlyPer: 'Save more with the annual plan and keep full access all year.', yearly1: 'Everything in the monthly plan', yearly2: 'Better long-term value', yearly3: 'One purchase for the full year', yearlyBuy: 'Buy yearly',
         faqTitle: 'Frequently asked questions', faqDesc: 'Clear answers for the things people usually want to know before downloading or buying.',
         faq1Q: 'What exactly does the CSV import do?', faq1A: 'It lets you bring in many prepared posts at once instead of adding them one by one. This is especially useful when you generate content ideas with ChatGPT or another AI and want to load them into the app quickly.',
         faq2Q: 'Can I edit posts after importing them?', faq2A: 'Yes. Importing is only the starting point. You can still review, adjust, reorder, or delete posts from your list before running your schedule.',
@@ -1154,7 +1167,7 @@
         contactCardTitle: 'Need help or have a question?', contactCardDesc: 'Send a message for support, licensing, or business inquiries. The form works directly on this page and your email address stays hidden.',
         contactPoint1: 'Support questions about setup, workflow, or licensing', contactPoint2: 'Pre-sale questions before buying full access', contactPoint3: 'Business or collaboration inquiries',
         labelName: 'Name and surname', placeholderName: 'Your full name', labelEmail: 'Email', placeholderEmail: 'you@example.com', labelMessage: 'Message', placeholderMessage: 'Write your message here...', sendMessage: 'Send message',
-        footer: '<span data-i18n="footerText">© X Pulse Labs. Built for a cleaner X publishing workflow.</span>',
+        footer: '<span data-i18n="footerText">© X Pulse Labs. Built for a cleaner X publishing workflow. support@xpulselabs.com</span>',
         formActivate: 'Paste your Formspree endpoint into the form action to activate this contact form.', formSuccess: 'Your message has been sent successfully.', formError: 'Something went wrong. Please try again.'
       },
       tr: {
@@ -1164,7 +1177,7 @@
         heroEyebrow: 'X için masaüstü otomasyonu • Hızlı kurulum • Temiz iş akışı',
         heroTitle: 'Bir kez hazırla. Akıllıca zamanla. X Pulse Pro paylaşmaya devam etsin.',
         heroDesc: 'X Pulse Pro; içerik üreticileri, pazarlamacılar ve daha temiz bir X iş akışı isteyen herkes için hazırlanmış bir masaüstü aracıdır. Gönderilerini yaz, toplu içe aktar, zamanlamanı ayarla ve tekrar eden kısmı uygulamaya bırak.',
-        downloadFreeTrial: 'Ücretsiz Denemeyi İndir', seeHowItWorks: 'Nasıl çalıştığını gör', heroNote: '3 günlük ücretsiz deneme. Tam erişim ödeme sayfandan açılabilir.',
+        downloadFreeTrial: 'Ücretsiz Denemeyi İndir', seeHowItWorks: 'Nasıl çalıştığını gör', heroNote: '3 günlük ücretsiz deneme. Sonra aylık ya da yıllık tam erişimi seç.',
         trust1Title: 'CSV içe aktarma', trust1Desc: 'Gönderileri tek tek eklemek yerine bir kerede toplu şekilde içeri al.',
         trust2Title: 'Akıllı aralıklar', trust2Desc: 'Sabit saatler, rastgele paylaşım veya kendi akışına göre özel zamanlama kullan.',
         trust3Title: 'Metin + medya', trust3Desc: 'Aynı masaüstü panelinden metin ve medya gönderilerini birlikte yönet.',
@@ -1193,9 +1206,10 @@
         care1Title: 'Basit kontroller', care1Desc: 'Menülerde kaybolmadan başlat, düzenle, içe aktar, temizle ve takip et.',
         care2Title: 'Daha iyi toplu hazırlık', care2Desc: 'Sürekli durup bir sonraki gönderiyi yazmak yerine tek oturuşta daha fazla içerik hazırla.',
         care3Title: 'Pratik görünürlük', care3Desc: 'Seçilen gönderi alanı ve log paneli tahmin yürütmeden neler olduğunu görmeni sağlar.',
-        pricingTitle: 'Başlangıç noktanı seç', pricingDesc: 'Önce ücretsiz denemeyle başla, sonra bunu düzenli iş akışının parçası yapmaya hazır olduğunda tam erişime geç.',
+        pricingTitle: 'Başlangıç noktanı seç', pricingDesc: 'Önce ücretsiz denemeyle başla, sonra iş akışına en uygun planı seç.',
         trialTitle: 'Ücretsiz Deneme', trialAmount: '3 gün', trialPer: 'İndir, kullan, sonra karar ver.', trial1: 'Masaüstü uygulamasını kur', trial2: 'Arayüzü keşfet', trial3: 'Önce sürecini test et', downloadTrial: 'Denemeyi indir',
-        mainOption: 'Ana seçenek', fullTitle: 'Tam Erişim', fullAmount: '$7.99 /yıl', fullPer: 'Lisanslı deneyimin tamamını aç.', full1: 'Tam masaüstü iş akışı', full2: 'Toplu gönderi hazırlığı', full3: 'CSV içe aktarma ve zamanlama', buyNowLower: 'Satın al',
+        monthlyTitle: 'Aylık', monthlyAmount: 'Aylık 120 TL', monthlyPer: 'Tam lisanslı özelliklere esnek aylık erişim.', monthly1: 'Tam masaüstü iş akışı', monthly2: 'Toplu gönderi hazırlığı', monthly3: 'CSV içe aktarma ve zamanlama', monthlyBuy: 'Satın al',
+        mainOption: 'En iyi seçenek', yearlyTitle: 'Yıllık', yearlyAmount: 'Yıllık 600 TL', yearlyPer: 'Yıllık planda daha avantajlı fiyatla tam erişimi koru.', yearly1: 'Aylık plandaki her şey', yearly2: 'Uzun vadede daha iyi değer', yearly3: 'Tüm yıl için tek satın alma', yearlyBuy: 'Yıllık satın al',
         faqTitle: 'Sık sorulan sorular', faqDesc: 'İndirmeden ya da satın almadan önce insanların en çok merak ettiği şeylere net cevaplar.',
         faq1Q: 'CSV içe aktarma tam olarak ne yapıyor?', faq1A: 'Hazırladığın birçok gönderiyi tek tek eklemek yerine toplu biçimde içeri almanı sağlar. Özellikle ChatGPT veya başka bir yapay zekâ ile fikir üretip bunları uygulamaya hızlıca yüklemek istediğinde çok kullanışlıdır.',
         faq2Q: 'İçe aktardıktan sonra gönderileri düzenleyebilir miyim?', faq2A: 'Evet. İçe aktarma sadece başlangıçtır. Zamanlamayı çalıştırmadan önce gönderilerini inceleyebilir, düzenleyebilir, sıralayabilir veya silebilirsin.',
@@ -1206,7 +1220,7 @@
         contactCardTitle: 'Yardıma mı ihtiyacın var, bir sorun mu var?', contactCardDesc: 'Destek, lisans veya iş birliği konuları için mesaj gönder. Form bu sayfada çalışır ve e-posta adresin gizli kalır.',
         contactPoint1: 'Kurulum, iş akışı veya lisans hakkında destek soruları', contactPoint2: 'Tam erişim satın almadan önce ön satış soruları', contactPoint3: 'İş veya iş birliği talepleri',
         labelName: 'Ad soyad', placeholderName: 'Tam adın', labelEmail: 'E-posta', placeholderEmail: 'eposta@ornek.com', labelMessage: 'Mesaj', placeholderMessage: 'Mesajını buraya yaz...', sendMessage: 'Mesaj gönder',
-        footer: '© X Pulse Labs. Daha temiz bir X yayın akışı için üretildi.',
+        footer: '© X Pulse Labs. Daha temiz bir X yayın akışı için üretildi. support@xpulselabs.com',
         formActivate: 'İletişim formunu aktif etmek için Formspree bağlantını form action alanına yapıştır.', formSuccess: 'Mesajın başarıyla gönderildi.', formError: 'Bir hata oluştu. Lütfen tekrar dene.'
       }
     };
