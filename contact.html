@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — XPulse Labs</title>
+  <meta name="description" content="Get in touch with XPulse Labs. Support for IG Pulse Pro and X Pulse Pro." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #07070f; --bg2: #0d0d1c;
+      --ig-g: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+      --txt: #f0f0ff; --txt2: #9898b8; --txt3: #55556a;
+      --bdr: rgba(255,255,255,.07); --bdr-ig: rgba(139,92,246,.30); --r: 16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--txt); line-height: 1.7; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: rgba(139,92,246,.45); border-radius: 3px; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .container-sm { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; background: rgba(7,7,15,.88); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid var(--bdr); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; gap: 24px; }
+    .nav-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; flex-shrink: 0; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 8px; object-fit: contain; }
+    .nav-logo span { font-size: 17px; font-weight: 800; background: var(--ig-g); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-links { display: flex; gap: 18px; list-style: none; flex: 1; justify-content: center; }
+    .nav-links a { text-decoration: none; color: var(--txt3); font-size: 12px; font-weight: 500; transition: color .18s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--txt); }
+    .nav-ctas { display: flex; gap: 8px; flex-shrink: 0; }
+    .nav-ctas .btn { padding: 7px 14px; font-size: 12.5px; border-radius: 8px; display: inline-flex; align-items: center; font-weight: 600; text-decoration: none; border: none; cursor: pointer; font-family: inherit; transition: all .22s; }
+    .btn-ig { background: var(--ig-g); color: #fff; box-shadow: 0 4px 22px rgba(139,92,246,.35); }
+    .btn-ig:hover { transform: translateY(-2px); }
+    .btn-x  { background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); color: #fff; }
+    .btn-x:hover { transform: translateY(-2px); }
+    .lang-toggle { display: flex; align-items: center; background: rgba(255,255,255,.04); border: 1px solid var(--bdr); border-radius: 7px; padding: 2px; gap: 1px; margin: 0 8px; }
+    .lang-btn { padding: 3px 9px; border-radius: 5px; border: none; background: transparent; color: var(--txt3); font-size: 10.5px; font-weight: 800; letter-spacing: .08em; cursor: pointer; font-family: inherit; transition: all .18s; }
+    .lang-btn.active { background: rgba(139,92,246,.26); color: #c084fc; }
+    .lang-btn:hover:not(.active) { color: var(--txt2); }
+    .ham { display: none; background: none; border: none; color: var(--txt); font-size: 22px; cursor: pointer; padding: 4px; }
+    .mob-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 199; background: rgba(7,7,15,.97); backdrop-filter: blur(20px); padding: 20px 24px 28px; border-bottom: 1px solid var(--bdr); flex-direction: column; gap: 14px; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { color: var(--txt2); text-decoration: none; font-size: 15px; font-weight: 500; padding: 6px 0; }
+    .mob-lang { display: flex; gap: 8px; padding: 4px 0; }
+    .mob-lang .lang-btn { border: 1px solid var(--bdr); border-radius: 7px; font-size: 13px; padding: 7px 18px; }
+    .mob-lang .lang-btn.active { border-color: rgba(139,92,246,.5); }
+    .mob-ctas { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+    .btn-full { width: 100%; justify-content: center; display: flex; }
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-ctas { display: none; } .lang-toggle { display: none; } .ham { display: block; } }
+
+    /* ── HERO ── */
+    .hero { padding: 120px 0 60px; background: linear-gradient(180deg, #0b0818 0%, var(--bg) 100%); text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(139,92,246,.13) 0%, transparent 68%); pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(139,92,246,.11); border: 1px solid rgba(139,92,246,.28); padding: 5px 16px; border-radius: 100px; font-size: 11.5px; font-weight: 700; color: #c084fc; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 900; letter-spacing: -.03em; margin-bottom: 18px; }
+    .hero h1 span { background: var(--ig-g); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { font-size: 17px; color: var(--txt2); max-width: 480px; margin: 0 auto; }
+
+    /* ── CONTACT ── */
+    .contact-section { padding: 70px 0 100px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 32px; align-items: start; }
+    .info-card { background: var(--bg2); border: 1px solid var(--bdr); border-radius: var(--r); padding: 28px; }
+    .info-card + .info-card { margin-top: 16px; }
+    .info-card.accent { border-color: rgba(139,92,246,.28); }
+    .info-icon { width: 44px; height: 44px; border-radius: 11px; background: rgba(139,92,246,.14); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; }
+    .info-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 7px; }
+    .info-card p  { font-size: 13.5px; color: var(--txt2); line-height: 1.65; }
+    .info-card a  { color: #c084fc; text-decoration: none; font-weight: 600; }
+    .info-card a:hover { text-decoration: underline; }
+    .resp-badge { display: inline-flex; align-items: center; gap: 5px; background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.25); color: #4ade80; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; letter-spacing: .05em; margin-top: 10px; }
+    .resp-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; animation: blink 2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .form-card { background: var(--bg2); border: 1px solid var(--bdr-ig); border-radius: var(--r); padding: 36px; position: relative; overflow: hidden; }
+    .form-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--ig-g); }
+    .form-card h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .form-card > p { font-size: 14px; color: var(--txt2); margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+    .form-group label { font-size: 12.5px; font-weight: 700; color: var(--txt2); letter-spacing: .05em; text-transform: uppercase; }
+    .form-group input, .form-group select, .form-group textarea { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: 13px 16px; font-family: inherit; font-size: 14px; color: var(--txt); outline: none; transition: border-color .2s, box-shadow .2s; resize: vertical; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--txt3); }
+    .form-group select option { background: #0d0d1c; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(139,92,246,.55); box-shadow: 0 0 0 3px rgba(139,92,246,.12); }
+    .form-group textarea { min-height: 140px; }
+    .btn-submit { width: 100%; padding: 15px; border: none; border-radius: 11px; background: var(--ig-g); color: #fff; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; box-shadow: 0 4px 22px rgba(139,92,246,.35); transition: transform .2s, box-shadow .2s; margin-top: 8px; }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(139,92,246,.52); }
+    .form-success { display: none; text-align: center; padding: 40px 20px; }
+    .form-success .success-icon { font-size: 52px; margin-bottom: 18px; }
+    .form-success h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+    .form-success p { font-size: 14.5px; color: var(--txt2); }
+
+    /* ── FOOTER ── */
+    .page-footer { background: var(--bg2); border-top: 1px solid var(--bdr); padding: 28px 0; text-align: center; font-size: 12.5px; color: var(--txt3); }
+    .page-footer a { color: var(--txt2); text-decoration: none; }
+    .page-footer a:hover { color: var(--txt); }
+
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } .form-card { padding: 24px; } }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="XPulseLabs_logo.png" alt="XPulse Labs" />
+      <span>XPulse Labs</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#products">Products</a></li>
+      <li><a href="index.html#ig-pulse">IG Pulse Pro</a></li>
+      <li><a href="index.html#x-pulse">X Pulse Pro</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#compare">Compare</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn"        data-lang="tr" onclick="setLang('tr')">TR</button>
+    </div>
+    <div class="nav-ctas">
+      <a href="https://xpulselabs.gumroad.com/l/wltblu" target="_blank" rel="noopener" class="btn btn-ig" id="nav-buy-ig">Buy IG Pulse Pro</a>
+      <a href="https://xpulselabs.gumroad.com/l/wzfihw" target="_blank" rel="noopener" class="btn btn-x"  id="nav-buy-x">Buy X Pulse Pro</a>
+    </div>
+    <button class="ham" id="hamBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html#products">Products</a>
+  <a href="index.html#ig-pulse">IG Pulse Pro</a>
+  <a href="index.html#x-pulse">X Pulse Pro</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <div class="mob-lang">
+    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn"        data-lang="tr" onclick="setLang('tr')">TR</button>
+  </div>
+  <div class="mob-ctas">
+    <a href="https://xpulselabs.gumroad.com/l/wltblu" target="_blank" rel="noopener" class="btn btn-ig btn-full">Buy IG Pulse Pro</a>
+    <a href="https://xpulselabs.gumroad.com/l/wzfihw" target="_blank" rel="noopener" class="btn btn-x  btn-full">Buy X Pulse Pro</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container-sm">
+    <div class="hero-badge" id="hero-badge">Contact</div>
+    <h1><span id="hero-title-full">Get in Touch</span></h1>
+    <p id="hero-sub">Have a question about IG Pulse Pro or X Pulse Pro? We're here to help — fast.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div>
+        <div class="info-card accent">
+          <div class="info-icon">✉️</div>
+          <h3 id="info-email-title">Email Support</h3>
+          <p id="info-email-text">Reach us directly at<br /><a href="mailto:support@xpulselabs.com">support@xpulselabs.com</a></p>
+          <div class="resp-badge"><span class="resp-dot"></span> <span id="resp-text">Typically replies within 24h</span></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📦</div>
+          <h3 id="info-ig-title">IG Pulse Pro Support</h3>
+          <p id="info-ig-text">License issues, AI Studio credits, browser connection, scheduling questions — we've got you covered.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">⚡</div>
+          <h3 id="info-x-title">X Pulse Pro Support</h3>
+          <p id="info-x-text">CSV import, posting intervals, queue setup, or anything else — send us a message and we'll sort it out.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <h3 id="info-feat-title">Feature Requests</h3>
+          <p id="info-feat-text">Have an idea that would make the tools better? We read every message and love hearing from our users.</p>
+        </div>
+      </div>
+
+      <div class="form-card" id="formCard">
+        <h2 id="form-title">Send us a Message</h2>
+        <p id="form-sub">Fill out the form below and we'll get back to you at your email address.</p>
+
+        <input type="text" name="company" id="honeypot" style="display:none;position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" />
+
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label id="label-name">Your Name</label>
+              <input type="text" name="name" id="input-name" placeholder="Selim" required />
+            </div>
+            <div class="form-group">
+              <label id="label-email">Email Address</label>
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label id="label-product">Product</label>
+            <select name="product" required>
+              <option value="" disabled selected id="opt-select">Select a product…</option>
+              <option value="IG Pulse Pro">IG Pulse Pro</option>
+              <option value="X Pulse Pro">X Pulse Pro</option>
+              <option value="Both">Both Products</option>
+              <option value="General" id="opt-general">General / Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label id="label-subject">Subject</label>
+            <input type="text" name="subject" id="input-subject" placeholder="e.g. License issue, feature idea…" required />
+          </div>
+          <div class="form-group">
+            <label id="label-message">Message</label>
+            <textarea name="message" id="input-message" placeholder="Describe your issue or question in as much detail as you can…" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">Send Message →</button>
+          <p id="formStatus" style="margin-top:12px; font-size:13.5px; text-align:center; min-height:20px;"></p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">✅</div>
+          <h3 id="success-title">Message Sent!</h3>
+          <p id="success-text">Thanks for reaching out! We received your message and will reply to your email within 24 hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="page-footer">
+  <div class="container">
+    <p>
+      <span data-en="© 2025 XPulse Labs. All rights reserved." data-tr="© 2025 XPulse Labs. Tüm hakları saklıdır.">© 2025 XPulse Labs. All rights reserved.</span>
+      &nbsp;·&nbsp; <a href="index.html" data-en="Home" data-tr="Ana Sayfa">Home</a>
+      &nbsp;·&nbsp; <a href="terms.html" data-en="Terms of Service" data-tr="Kullanım Koşulları">Terms of Service</a>
+      &nbsp;·&nbsp; <a href="privacy.html" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('hamBtn').addEventListener('click', function() {
+    document.getElementById('mobMenu').classList.toggle('open');
+  });
+
+  var TR = {
+    'hero-badge': 'İletişim',
+    'hero-title-full': 'Bize Ulaşın',
+    'hero-sub': 'IG Pulse Pro veya X Pulse Pro hakkında sorunuz mu var? Hızlı yardım için buradayız.',
+    'info-email-title': 'E-posta Desteği',
+    'info-email-text': 'Bize doğrudan ulaşın:<br /><a href="mailto:support@xpulselabs.com">support@xpulselabs.com</a>',
+    'resp-text': 'Genellikle 24 saat içinde yanıt verir',
+    'info-ig-title': 'IG Pulse Pro Desteği',
+    'info-ig-text': 'Lisans sorunları, AI Studio kredileri, tarayıcı bağlantısı, zamanlama soruları, her konuda yardımcı oluruz.',
+    'info-x-title': 'X Pulse Pro Desteği',
+    'info-x-text': 'CSV içe aktarma, paylaşım aralıkları, kuyruk kurulumu veya başka bir şey, mesaj gönderin, halledelim.',
+    'info-feat-title': 'Özellik İstekleri',
+    'info-feat-text': 'Araçları daha iyi hale getirecek bir fikriniz mi var? Her mesajı okuyoruz ve kullanıcılarımızdan duymaktan keyif alıyoruz.',
+    'form-title': 'Bize Mesaj Gönderin',
+    'form-sub': 'Aşağıdaki formu doldurun, e-posta adresinize geri dönelim.',
+    'label-name': 'Adınız',
+    'label-email': 'E-posta Adresi',
+    'label-product': 'Ürün',
+    'label-subject': 'Konu',
+    'label-message': 'Mesaj',
+    'success-title': 'Mesaj Gönderildi!',
+    'success-text': 'Bize ulaştığınız için teşekkürler! Mesajınızı aldık ve 24 saat içinde e-posta adresinize yanıt vereceğiz.',
+    'nav-buy-ig': 'IG Pulse Pro Satın Al',
+    'nav-buy-x': 'X Pulse Pro Satın Al',
+    'opt-select': 'Bir ürün seçin?',
+    'opt-general': 'Genel / Diğer'
+  };
+  var EN = {
+    'hero-badge': 'Contact',
+    'hero-title-full': 'Get in Touch',
+    'hero-sub': "Have a question about IG Pulse Pro or X Pulse Pro? We're here to help fast.",
+    'info-email-title': 'Email Support',
+    'info-email-text': 'Reach us directly at<br /><a href="mailto:support@xpulselabs.com">support@xpulselabs.com</a>',
+    'resp-text': 'Typically replies within 24h',
+    'info-ig-title': 'IG Pulse Pro Support',
+    'info-ig-text': 'License issues, AI Studio credits, browser connection, scheduling questions, we have you covered.',
+    'info-x-title': 'X Pulse Pro Support',
+    'info-x-text': 'CSV import, posting intervals, queue setup, or anything else, send us a message and we will sort it out.',
+    'info-feat-title': 'Feature Requests',
+    'info-feat-text': 'Have an idea that would make the tools better? We read every message and love hearing from our users.',
+    'form-title': 'Send us a Message',
+    'form-sub': "Fill out the form below and we'll get back to you at your email address.",
+    'label-name': 'Your Name',
+    'label-email': 'Email Address',
+    'label-product': 'Product',
+    'label-subject': 'Subject',
+    'label-message': 'Message',
+    'success-title': 'Message Sent!',
+    'success-text': 'Thanks for reaching out! We received your message and will reply to your email within 24 hours.',
+    'nav-buy-ig': 'Buy IG Pulse Pro',
+    'nav-buy-x': 'Buy X Pulse Pro',
+    'opt-select': 'Select a product?',
+    'opt-general': 'General / Other'
+  };
+
+  var _lang = 'en';
+  try { var _saved = localStorage.getItem('xpl_lang'); if (_saved) _lang = _saved; } catch(e){}
+
+  function setLang(lang) {
+    _lang = lang;
+    try { localStorage.setItem('xpl_lang', lang); } catch(e) {}
+    document.documentElement.lang = lang === 'tr' ? 'tr' : 'en';
+    var map = lang === 'tr' ? TR : EN;
+    Object.keys(map).forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = map[id];
+    });
+
+    var firstOption = document.getElementById('opt-select');
+    var generalOption = document.getElementById('opt-general');
+    if (firstOption) firstOption.textContent = map['opt-select'];
+    if (generalOption) generalOption.textContent = map['opt-general'];
+
+    if (lang === 'tr') {
+      document.getElementById('input-name').placeholder = 'Adınız';
+      document.getElementById('input-subject').placeholder = 'ör. Lisans sorunu, özellik isteği?';
+      document.getElementById('input-message').placeholder = 'Sorununuzu veya sorunuzu mümkün olduğunca ayrıntılı açıklayın?';
+      document.getElementById('submitBtn').textContent = 'Mesaj Gönder ?';
+    } else {
+      document.getElementById('input-name').placeholder = 'Selim';
+      document.getElementById('input-subject').placeholder = 'e.g. License issue, feature idea?';
+      document.getElementById('input-message').placeholder = 'Describe your issue or question in as much detail as you can?';
+      document.getElementById('submitBtn').textContent = 'Send Message ?';
+    }
+
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+      el.innerHTML = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
+    });
+    document.querySelectorAll('.nav-links a, .mob-menu > a').forEach(function(el) {
+      var href = el.getAttribute('href') || '';
+      if (href === 'index.html#products') el.textContent = lang === 'tr' ? 'Ürünler' : 'Products';
+      else if (href === 'index.html#ig-pulse') el.textContent = 'IG Pulse Pro';
+      else if (href === 'index.html#x-pulse') el.textContent = 'X Pulse Pro';
+      else if (href === 'index.html#pricing') el.textContent = lang === 'tr' ? 'Fiyatlandırma' : 'Pricing';
+      else if (href === 'index.html#compare') el.textContent = lang === 'tr' ? 'Karşılaştır' : 'Compare';
+      else if (href === 'index.html#faq') el.textContent = 'FAQ';
+      else if (href === 'contact.html') el.textContent = lang === 'tr' ? 'İletişim' : 'Contact';
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+  }
+
+  if (_lang !== 'en') setLang(_lang);
+
+  var contactForm = document.getElementById('contactForm');
+  var formStatus = document.getElementById('formStatus');
+  var submitBtn = document.getElementById('submitBtn');
+  var lastSubmit = 0;
+
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (document.getElementById('honeypot').value !== '') return;
+    var messageVal = (this.message.value || '').trim();
+    if (messageVal.length < 10) {
+      formStatus.style.color = '#f87171';
+      formStatus.textContent = _lang === 'tr'
+        ? 'Lütfen mesajınıza biraz daha fazla yazın (en az 10 karakter).'
+        : 'Please write a bit more in your message (at least 10 characters).';
+      return;
+    }
+    var now = Date.now();
+    if (now - lastSubmit < 10000) {
+      formStatus.style.color = '#f87171';
+      formStatus.textContent = _lang === 'tr'
+        ? 'Lütfen başka bir mesaj göndermeden önce biraz bekleyin.'
+        : 'Please wait a moment before sending another message.';
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = _lang === 'tr' ? 'Gönderiliyor?' : 'Sending?';
+    formStatus.style.color = 'var(--txt2)';
+    formStatus.textContent = '';
+    var payload = {
+      name: (this.name.value || '').trim(),
+      email: (this.email.value || '').trim(),
+      subject: (this.subject.value || '').trim(),
+      message: messageVal
+    };
+    try {
+      var response = await fetch('https://xpulse-api-production.up.railway.app/contact', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        lastSubmit = Date.now();
+        contactForm.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        var json = await response.json().catch(function(){ return {}; });
+        var errMsg = json.message || json.error || (_lang === 'tr'
+          ? 'Bir şeyler ters gitti. Lütfen tekrar deneyin veya support@xpulselabs.com adresine e-posta gönderin.'
+          : 'Something went wrong. Please try again or email us at support@xpulselabs.com');
+        formStatus.style.color = '#f87171';
+        formStatus.textContent = errMsg;
+        submitBtn.disabled = false;
+        submitBtn.textContent = _lang === 'tr' ? 'Mesaj Gönder ?' : 'Send Message ?';
+      }
+    } catch (err) {
+      formStatus.style.color = '#f87171';
+      formStatus.textContent = _lang === 'tr'
+        ? 'Ağ hatası. Bağlantınızı kontrol edip tekrar deneyin veya support@xpulselabs.com adresine yazın.'
+        : 'Network error. Please check your connection and try again, or email support@xpulselabs.com.';
+      submitBtn.disabled = false;
+      submitBtn.textContent = _lang === 'tr' ? 'Mesaj Gönder ?' : 'Send Message ?';
+    }
+  });
+</script>
+</body>
+</html>

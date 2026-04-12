@@ -3,254 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XPulse Pro Updates</title>
+  <title>Updates — XPulse Labs</title>
+  <meta name="description" content="Latest updates and download links for IG Pulse Pro and X Pulse Pro." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #07101d;
-      --panel: rgba(10, 21, 40, 0.86);
-      --line: rgba(255,255,255,0.08);
-      --text: #eef4ff;
-      --muted: #a9b7d3;
-      --blue: #39bdf8;
-      --shadow: 0 20px 60px rgba(0,0,0,.34);
-      --radius: 24px;
+      --bg: #07070f; --bg2: #0d0d1c;
+      --ig-g: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+      --txt: #f0f0ff; --txt2: #9898b8; --txt3: #55556a;
+      --bdr: rgba(255,255,255,.07); --bdr-ig: rgba(139,92,246,.30); --r: 16px;
     }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--txt); line-height: 1.7; overflow-x: hidden; min-height: 100vh; }
+    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: rgba(139,92,246,.45); border-radius: 3px; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .container-sm { max-width: 700px; margin: 0 auto; padding: 0 24px; }
 
-    * { box-sizing: border-box; }
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; background: rgba(7,7,15,.88); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid var(--bdr); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; gap: 24px; }
+    .nav-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; flex-shrink: 0; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 8px; object-fit: contain; }
+    .nav-logo span { font-size: 17px; font-weight: 800; background: var(--ig-g); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-links { display: flex; gap: 18px; list-style: none; flex: 1; justify-content: center; }
+    .nav-links a { text-decoration: none; color: var(--txt3); font-size: 12px; font-weight: 500; transition: color .18s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--txt); }
+    .nav-ctas { display: flex; gap: 8px; flex-shrink: 0; }
+    .nav-ctas .btn { padding: 7px 14px; font-size: 12.5px; border-radius: 8px; display: inline-flex; align-items: center; font-weight: 600; text-decoration: none; border: none; cursor: pointer; font-family: inherit; transition: all .22s; }
+    .btn-ig { background: var(--ig-g); color: #fff; box-shadow: 0 4px 22px rgba(139,92,246,.35); }
+    .btn-ig:hover { transform: translateY(-2px); }
+    .btn-x  { background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); color: #fff; }
+    .btn-x:hover { transform: translateY(-2px); }
+    .lang-toggle { display: flex; align-items: center; background: rgba(255,255,255,.04); border: 1px solid var(--bdr); border-radius: 7px; padding: 2px; gap: 1px; margin: 0 8px; }
+    .lang-btn { padding: 3px 9px; border-radius: 5px; border: none; background: transparent; color: var(--txt3); font-size: 10.5px; font-weight: 800; letter-spacing: .08em; cursor: pointer; font-family: inherit; transition: all .18s; }
+    .lang-btn.active { background: rgba(139,92,246,.26); color: #c084fc; }
+    .lang-btn:hover:not(.active) { color: var(--txt2); }
+    .ham { display: none; background: none; border: none; color: var(--txt); font-size: 22px; cursor: pointer; padding: 4px; }
+    .mob-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 199; background: rgba(7,7,15,.97); backdrop-filter: blur(20px); padding: 20px 24px 28px; border-bottom: 1px solid var(--bdr); flex-direction: column; gap: 14px; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { color: var(--txt2); text-decoration: none; font-size: 15px; font-weight: 500; padding: 6px 0; }
+    .mob-lang { display: flex; gap: 8px; padding: 4px 0; }
+    .mob-lang .lang-btn { border: 1px solid var(--bdr); border-radius: 7px; font-size: 13px; padding: 7px 18px; }
+    .mob-lang .lang-btn.active { border-color: rgba(139,92,246,.5); }
+    .mob-ctas { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+    .btn-full { width: 100%; justify-content: center; display: flex; }
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-ctas { display: none; } .lang-toggle { display: none; } .ham { display: block; } }
 
-    body {
-      margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 10%, rgba(57,189,248,0.16), transparent 26%),
-        radial-gradient(circle at 88% 18%, rgba(47,208,109,0.10), transparent 22%),
-        linear-gradient(180deg, #08101d 0%, #050b15 100%);
-      min-height: 100vh;
-    }
+    /* ── MAIN ── */
+    .updates-wrap { padding: 110px 0 100px; }
+    .page-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(139,92,246,.11); border: 1px solid rgba(139,92,246,.28); padding: 5px 16px; border-radius: 100px; font-size: 11.5px; font-weight: 700; color: #c084fc; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 22px; }
+    .updates-hero { text-align: center; padding-bottom: 56px; }
+    .updates-hero h1 { font-size: clamp(32px,5vw,56px); font-weight: 900; letter-spacing: -.03em; margin-bottom: 16px; }
+    .updates-hero p { font-size: 16px; color: var(--txt2); max-width: 520px; margin: 0 auto; }
 
-    .wrap {
-      width: min(980px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 28px 0 50px;
-    }
+    /* Product tabs */
+    .prod-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+    .prod-tab { padding: 10px 24px; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; border: 1px solid var(--bdr); background: rgba(255,255,255,.03); color: var(--txt2); transition: all .2s; }
+    .prod-tab.active-ig { background: rgba(139,92,246,.15); border-color: rgba(139,92,246,.4); color: #c084fc; }
+    .prod-tab.active-x  { background: rgba(6,182,212,.12);  border-color: rgba(6,182,212,.38);  color: #22d3ee; }
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 34px;
-    }
+    /* Status card */
+    .status-card { background: var(--bg2); border: 1px solid var(--bdr); border-radius: var(--r); padding: 40px 36px; text-align: center; max-width: 640px; margin: 0 auto; }
+    .status-card.has-update { border-color: rgba(139,92,246,.35); }
+    .status-icon { font-size: 48px; margin-bottom: 18px; }
+    .status-card h2 { font-size: 24px; font-weight: 900; margin-bottom: 12px; }
+    .status-card p  { font-size: 15px; color: var(--txt2); max-width: 480px; margin: 0 auto 24px; }
+    .dl-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 12px; background: var(--ig-g); color: #fff; font-size: 15px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 22px rgba(139,92,246,.35); transition: all .22s; }
+    .dl-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(139,92,246,.52); }
+    .version-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.28); color: #4ade80; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 100px; margin-bottom: 16px; }
+    .note { font-size: 13px; color: var(--txt3); margin-top: 18px; }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: .2px;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .brand-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      color: #03101d;
-      background: linear-gradient(135deg, var(--blue), #62d2ff);
-      box-shadow: 0 10px 24px rgba(0,0,0,.28);
-    }
-
-    .lang-switch {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--line);
-    }
-
-    .lang-btn {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      font: inherit;
-      font-weight: 800;
-      padding: 8px 12px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: .18s ease;
-    }
-
-    .lang-btn.active {
-      background: linear-gradient(135deg, var(--blue), #62d2ff);
-      color: #03101d;
-      box-shadow: 0 8px 18px rgba(57,189,248,.18);
-    }
-
-    .hero {
-      background: linear-gradient(180deg, rgba(12,24,46,.85), rgba(7,16,29,.9));
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 32px;
-      text-align: center;
-    }
-
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-    }
-
-    .sub {
-      margin: 0 auto;
-      max-width: 700px;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-
-    .status-card {
-      margin-top: 28px;
-      padding: 28px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--line);
-    }
-
-    .status-title {
-      font-size: 1.6rem;
-      font-weight: 800;
-      margin: 0 0 10px;
-    }
-
-    .status-text {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .actions {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-weight: 800;
-      text-decoration: none;
-      transition: .18s ease;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--blue), #62d2ff);
-      color: #03101d;
-      box-shadow: 0 12px 26px rgba(57,189,248,.22);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--line);
-      color: var(--text);
-    }
-
-    .footer-note {
-      margin-top: 20px;
-      color: #8fa2c6;
-      font-size: .94rem;
-    }
-
-    @media (max-width: 640px) {
-      .wrap { width: min(980px, calc(100% - 20px)); }
-      .topbar { flex-wrap: wrap; }
-      .hero { padding: 24px 18px; }
-      .actions { flex-direction: column; }
-      .btn { width: 100%; }
-    }
+    /* ── FOOTER ── */
+    .page-footer { background: var(--bg2); border-top: 1px solid var(--bdr); padding: 28px 0; text-align: center; font-size: 12.5px; color: var(--txt3); }
+    .page-footer a { color: var(--txt2); text-decoration: none; }
+    .page-footer a:hover { color: var(--txt); }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <a class="brand" href="https://xpulselabs.com">
-        <div class="brand-badge">X</div>
-        <span>X Pulse Pro</span>
-      </a>
 
-      <div class="lang-switch">
-        <button class="lang-btn active" id="btn-en" type="button">EN</button>
-        <button class="lang-btn" id="btn-tr" type="button">TR</button>
-      </div>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="XPulseLabs_logo.png" alt="XPulse Labs" />
+      <span>XPulse Labs</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#products">Products</a></li>
+      <li><a href="index.html#ig-pulse">IG Pulse Pro</a></li>
+      <li><a href="index.html#x-pulse">X Pulse Pro</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#compare">Compare</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn"        data-lang="tr" onclick="setLang('tr')">TR</button>
+    </div>
+    <div class="nav-ctas">
+      <a href="https://xpulselabs.gumroad.com/l/wltblu" target="_blank" rel="noopener" class="btn btn-ig" id="nav-buy-ig">Buy IG Pulse Pro</a>
+      <a href="https://xpulselabs.gumroad.com/l/wzfihw" target="_blank" rel="noopener" class="btn btn-x"  id="nav-buy-x">Buy X Pulse Pro</a>
+    </div>
+    <button class="ham" id="hamBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html#products">Products</a>
+  <a href="index.html#ig-pulse">IG Pulse Pro</a>
+  <a href="index.html#x-pulse">X Pulse Pro</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <div class="mob-lang">
+    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn"        data-lang="tr" onclick="setLang('tr')">TR</button>
+  </div>
+  <div class="mob-ctas">
+    <a href="https://xpulselabs.gumroad.com/l/wltblu" target="_blank" rel="noopener" class="btn btn-ig btn-full">Buy IG Pulse Pro</a>
+    <a href="https://xpulselabs.gumroad.com/l/wzfihw" target="_blank" rel="noopener" class="btn btn-x  btn-full">Buy X Pulse Pro</a>
+  </div>
+</div>
+
+<div class="updates-wrap">
+  <div class="container-sm">
+
+    <div class="updates-hero">
+      <div class="page-badge" id="page-badge">Updates</div>
+      <h1 id="page-title">App Updates</h1>
+      <p id="page-sub">Check the latest releases and download links for IG Pulse Pro and X Pulse Pro.</p>
     </div>
 
-    <section class="hero">
-      <h1 id="title">Updates</h1>
-      <p class="sub" id="subtitle">Check the latest app updates and download links here.</p>
+    <div class="prod-tabs">
+      <button class="prod-tab active-ig" id="tab-ig" onclick="switchTab('ig')">IG Pulse Pro</button>
+      <button class="prod-tab" id="tab-x"  onclick="switchTab('x')">X Pulse Pro</button>
+    </div>
 
-      <div class="status-card">
-        <div class="status-title" id="statusTitle">No update at this moment</div>
-        <p class="status-text" id="statusText">When a new version is available, it will appear here with a download button.</p>
-      </div>
+    <div class="status-card" id="statusCard">
+      <div class="status-icon">✅</div>
+      <h2 id="status-title">You're up to date</h2>
+      <p id="status-text">When a new version is available, it will appear here with a download button.</p>
+      <p class="note" id="status-note">Check back here or enable in-app update notifications to stay informed.</p>
+    </div>
 
-      <div class="actions">
-        <a class="btn btn-secondary" id="homeBtn" href="https://xpulselabs.com">← Back to Homepage</a>
-      </div>
-
-      <p class="footer-note" id="footerNote">Please replace your old files with the new version after downloading future updates.</p>
-    </section>
   </div>
+</div>
 
-  <script>
-    const translations = {
-      en: {
-        title: 'Updates',
-        subtitle: 'Check the latest app updates and download links here.',
-        statusTitle: 'No update at this moment',
-        statusText: 'When a new version is available, it will appear here with a download button.',
-        homeBtn: '← Back to Homepage',
-        footerNote: 'Please replace your old files with the new version after downloading future updates.'
-      },
-      tr: {
-        title: 'Güncellemeler',
-        subtitle: 'Uygulamanın en güncel sürümlerini ve indirme bağlantılarını burada görebilirsiniz.',
-        statusTitle: 'Şu anda güncelleme yok',
-        statusText: 'Yeni bir sürüm yayınlandığında burada indirme butonuyla birlikte görünecektir.',
-        homeBtn: '← Ana Sayfaya Dön',
-        footerNote: 'İleride yeni sürümü indirdiğinizde eski dosyaların üzerine yenilerini koymanız yeterlidir.'
-      }
-    };
+<footer class="page-footer">
+  <div class="container">
+    <p>
+      <span data-en="© 2025 XPulse Labs. All rights reserved." data-tr="© 2025 XPulse Labs. Tüm hakları saklıdır.">© 2025 XPulse Labs. All rights reserved.</span>
+      &nbsp;·&nbsp; <a href="index.html" data-en="Home" data-tr="Ana Sayfa">Home</a>
+      &nbsp;·&nbsp; <a href="contact.html" data-en="Contact" data-tr="İletişim">Contact</a>
+      &nbsp;·&nbsp; <a href="terms.html" data-en="Terms of Service" data-tr="Kullanım Koşulları">Terms of Service</a>
+      &nbsp;·&nbsp; <a href="privacy.html" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</a>
+    </p>
+  </div>
+</footer>
 
-    function setLang(lang) {
-      document.documentElement.lang = lang;
-      document.getElementById('title').textContent = translations[lang].title;
-      document.getElementById('subtitle').textContent = translations[lang].subtitle;
-      document.getElementById('statusTitle').textContent = translations[lang].statusTitle;
-      document.getElementById('statusText').textContent = translations[lang].statusText;
-      document.getElementById('homeBtn').textContent = translations[lang].homeBtn;
-      document.getElementById('footerNote').textContent = translations[lang].footerNote;
+<script>
+  document.getElementById('hamBtn').addEventListener('click', function() {
+    document.getElementById('mobMenu').classList.toggle('open');
+  });
 
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+  var _lang = 'en';
+  var _activeTab = 'ig';
+  try { var _saved = localStorage.getItem('xpl_lang'); if (_saved) _lang = _saved; } catch(e){}
+
+  var TEXTS = {
+    en: {
+      'page-badge': 'Updates', 'page-title': 'App Updates',
+      'page-sub': 'Check the latest releases and download links for IG Pulse Pro and X Pulse Pro.',
+      'status-title-none': 'No new updates',
+      'status-text-none': 'When a new version is available, it will appear here with a download button.',
+      'status-note-none': 'Check back here or enable in-app update notifications to stay informed.',
+      'nav-buy-ig': 'Buy IG Pulse Pro', 'nav-buy-x': 'Buy X Pulse Pro',
+    },
+    tr: {
+      'page-badge': 'Güncellemeler', 'page-title': 'Uygulama Güncellemeleri',
+      'page-sub': 'IG Pulse Pro ve X Pulse Pro için en yeni sürümleri ve indirme bağlantılarını buradan takip edebilirsiniz.',
+      'status-title-none': 'Yeni güncelleme yok',
+      'status-text-none': 'Yeni bir sürüm yayınlandığında burada indirme butonuyla birlikte görünecektir.',
+      'status-note-none': 'Haberdar olmak için buraya gelin veya uygulama içi güncelleme bildirimlerini etkinleştirin.',
+      'nav-buy-ig': 'IG Pulse Pro Satın Al', 'nav-buy-x': 'X Pulse Pro Satın Al',
     }
+  };
 
-    document.getElementById('btn-en').addEventListener('click', () => setLang('en'));
-    document.getElementById('btn-tr').addEventListener('click', () => setLang('tr'));
-  </script>
+  function switchTab(tab) {
+    _activeTab = tab;
+    document.getElementById('tab-ig').className = 'prod-tab' + (tab === 'ig' ? ' active-ig' : '');
+    document.getElementById('tab-x').className  = 'prod-tab' + (tab === 'x'  ? ' active-x'  : '');
+    renderStatus();
+  }
+
+  function renderStatus() {
+    var t = TEXTS[_lang];
+    document.getElementById('status-title').textContent = t['status-title-none'];
+    document.getElementById('status-text').textContent  = t['status-text-none'];
+    document.getElementById('status-note').textContent  = t['status-note-none'];
+  }
+
+  function setLang(lang) {
+    _lang = lang;
+    try { localStorage.setItem('xpl_lang', lang); } catch(e) {}
+    document.documentElement.lang = lang === 'tr' ? 'tr' : 'en';
+    var t = TEXTS[lang];
+    ['page-badge','page-title','page-sub','nav-buy-ig','nav-buy-x'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = t[id];
+    });
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+      el.innerHTML = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    renderStatus();
+  }
+
+  if (_lang !== 'en') setLang(_lang);
+</script>
 </body>
 </html>

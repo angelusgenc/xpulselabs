@@ -1,269 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Terms and Conditions - X Pulse Pro</title>
-<style>
-:root {
-  --bg: #07101d;
-  --panel: rgba(10, 21, 40, 0.86);
-  --panel-2: #0d1a31;
-  --line: rgba(255,255,255,0.08);
-  --text: #eef4ff;
-  --muted: #a9b7d3;
-  --blue: #39bdf8;
-  --green: #2fd06d;
-  --shadow: 0 20px 60px rgba(0,0,0,.34);
-  --radius: 24px;
-  --max: 980px;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(circle at 10% 10%, rgba(57,189,248,0.16), transparent 26%),
-    radial-gradient(circle at 88% 18%, rgba(47,208,109,0.10), transparent 22%),
-    linear-gradient(180deg, #08101d 0%, #050b15 100%);
-  line-height: 1.65;
-}
-a { color: inherit; text-decoration: none; }
-.container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  backdrop-filter: blur(14px);
-  background: rgba(5,11,21,.66);
-  border-bottom: 1px solid var(--line);
-}
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 74px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-weight: 800;
-  letter-spacing: .2px;
-}
-.brand-mark {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.28);
-  background: linear-gradient(135deg, rgba(57,189,248,.28), rgba(47,208,109,.18));
-  border: 1px solid rgba(255,255,255,.08);
-  display: grid;
-  place-items: center;
-  color: white;
-  font-weight: 900;
-}
-.brand span { font-size: 1.15rem; }
-.nav-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid var(--line);
-}
-.lang-btn {
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  font: inherit;
-  font-weight: 800;
-  padding: 8px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: .18s ease;
-}
-.lang-btn.active {
-  background: linear-gradient(135deg, var(--blue), #62d2ff);
-  color: #03101d;
-  box-shadow: 0 8px 18px rgba(57,189,248,.18);
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 18px;
-  border-radius: 999px;
-  font-weight: 800;
-  border: 1px solid transparent;
-  transition: .18s ease;
-  cursor: pointer;
-}
-.btn:hover { transform: translateY(-1px); }
-.btn-primary {
-  background: linear-gradient(135deg, var(--blue), #62d2ff);
-  color: #03101d;
-  box-shadow: 0 12px 26px rgba(57,189,248,.24);
-}
-.hero { padding: 42px 0 20px; }
-.eyebrow {
-  display: inline-flex;
-  gap: 10px;
-  align-items: center;
-  padding: 9px 14px;
-  border-radius: 999px;
-  background: rgba(57,189,248,.10);
-  border: 1px solid rgba(57,189,248,.22);
-  color: #c9ebff;
-  font-size: .92rem;
-  margin-bottom: 18px;
-}
-.page-card {
-  background: linear-gradient(180deg, rgba(12,24,46,.85), rgba(7,16,29,.9));
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  box-shadow: var(--shadow);
-  padding: 28px;
-}
-h1 {
-  margin: 0 0 12px;
-  font-size: clamp(2rem, 4vw, 3.1rem);
-  line-height: 1.02;
-  letter-spacing: -0.04em;
-}
-.lead {
-  margin: 0 0 6px;
-  color: var(--muted);
-  font-size: 1.05rem;
-  max-width: 760px;
-}
-.section {
-  margin-top: 28px;
-  padding-top: 22px;
-  border-top: 1px solid var(--line);
-}
-.section:first-of-type {
-  border-top: 0;
-  padding-top: 0;
-  margin-top: 28px;
-}
-h2 {
-  margin: 0 0 12px;
-  font-size: 1.2rem;
-}
-p, li { color: var(--text); }
-ul { margin: 0; padding-left: 20px; }
-li { margin: 8px 0; }
-.muted { color: var(--muted); }
-.callout {
-  margin-top: 18px;
-  padding: 15px 16px;
-  border-left: 3px solid var(--blue);
-  background: rgba(255,255,255,.03);
-  color: #d7eaff;
-  border-radius: 14px;
-  font-size: .98rem;
-}
-.footer {
-  padding: 28px 0 42px;
-  color: #8294b8;
-  font-size: .94rem;
-  text-align: center;
-}
-@media (max-width: 640px) {
-  .container { width: min(var(--max), calc(100% - 20px)); }
-  .nav { flex-wrap: wrap; padding: 12px 0; }
-  .nav-actions { width: 100%; justify-content: space-between; }
-  .page-card { padding: 20px; }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — XPulse Labs</title>
+  <meta name="description" content="Terms of Service for XPulse Labs products: IG Pulse Pro and X Pulse Pro desktop automation tools." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #07070f; --bg2: #0d0d1c;
+      --ig-g: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+      --txt: #f0f0ff; --txt2: #9898b8; --txt3: #55556a;
+      --bdr: rgba(255,255,255,.07); --bdr-ig: rgba(139,92,246,.30); --r: 16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--txt); line-height: 1.7; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: rgba(139,92,246,.45); border-radius: 3px; }
+    .container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; background: rgba(7,7,15,.88); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid var(--bdr); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; gap: 24px; }
+    .nav-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; flex-shrink: 0; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 8px; object-fit: contain; }
+    .nav-logo span { font-size: 17px; font-weight: 800; background: var(--ig-g); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-links { display: flex; gap: 18px; list-style: none; flex: 1; justify-content: center; }
+    .nav-links a { text-decoration: none; color: var(--txt3); font-size: 12px; font-weight: 500; transition: color .18s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--txt); }
+    .nav-ctas { display: flex; gap: 8px; flex-shrink: 0; }
+    .nav-ctas .btn { padding: 7px 14px; font-size: 12.5px; border-radius: 8px; display: inline-flex; align-items: center; font-weight: 600; text-decoration: none; border: none; cursor: pointer; font-family: inherit; transition: all .22s; }
+    .btn-ig { background: var(--ig-g); color: #fff; box-shadow: 0 4px 22px rgba(139,92,246,.35); }
+    .btn-ig:hover { transform: translateY(-2px); }
+    .btn-x  { background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); color: #fff; }
+    .btn-x:hover { transform: translateY(-2px); }
+    .lang-toggle { display: flex; align-items: center; background: rgba(255,255,255,.04); border: 1px solid var(--bdr); border-radius: 7px; padding: 2px; gap: 1px; margin: 0 8px; }
+    .lang-btn { padding: 3px 9px; border-radius: 5px; border: none; background: transparent; color: var(--txt3); font-size: 10.5px; font-weight: 800; letter-spacing: .08em; cursor: pointer; font-family: inherit; transition: all .18s; }
+    .lang-btn.active { background: rgba(139,92,246,.26); color: #c084fc; }
+    .lang-btn:hover:not(.active) { color: var(--txt2); }
+    .ham { display: none; background: none; border: none; color: var(--txt); font-size: 22px; cursor: pointer; padding: 4px; }
+    .mob-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 199; background: rgba(7,7,15,.97); backdrop-filter: blur(20px); padding: 20px 24px 28px; border-bottom: 1px solid var(--bdr); flex-direction: column; gap: 14px; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { color: var(--txt2); text-decoration: none; font-size: 15px; font-weight: 500; padding: 6px 0; }
+    .mob-lang { display: flex; gap: 8px; padding: 4px 0; }
+    .mob-lang .lang-btn { border: 1px solid var(--bdr); border-radius: 7px; font-size: 13px; padding: 7px 18px; }
+    .mob-lang .lang-btn.active { border-color: rgba(139,92,246,.5); }
+    .mob-ctas { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+    .btn-full { width: 100%; justify-content: center; display: flex; }
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-ctas { display: none; } .lang-toggle { display: none; } .ham { display: block; } }
+
+    /* ── HERO ── */
+    .doc-hero { padding: 110px 0 56px; background: linear-gradient(180deg, #0a0919 0%, var(--bg) 100%); text-align: center; position: relative; overflow: hidden; }
+    .doc-hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(139,92,246,.12) 0%, transparent 70%); pointer-events: none; }
+    .doc-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(139,92,246,.11); border: 1px solid rgba(139,92,246,.28); padding: 5px 16px; border-radius: 100px; font-size: 11.5px; font-weight: 700; color: #c084fc; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 22px; }
+    .doc-hero h1 { font-size: clamp(28px,4vw,44px); font-weight: 900; letter-spacing: -.025em; margin-bottom: 14px; }
+    .doc-hero .updated { font-size: 13px; color: var(--txt3); }
+
+    /* ── CONTENT ── */
+    .doc-body { padding: 60px 0 100px; }
+    .doc-section { background: var(--bg2); border: 1px solid var(--bdr); border-radius: var(--r); padding: 32px 36px; margin-bottom: 20px; }
+    .doc-section.accent { border-color: var(--bdr-ig); }
+    .doc-section h2 { font-size: 17px; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .doc-section h2 .ico { width: 32px; height: 32px; border-radius: 8px; background: rgba(139,92,246,.14); display: inline-flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+    .doc-section p { color: var(--txt2); font-size: 14px; margin-bottom: 12px; }
+    .doc-section p:last-child { margin-bottom: 0; }
+    .doc-section ul { color: var(--txt2); font-size: 14px; padding-left: 20px; display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
+    .doc-section ul li::marker { color: #8b5cf6; }
+    .highlight-box { background: rgba(139,92,246,.08); border: 1px solid rgba(139,92,246,.22); border-radius: 10px; padding: 18px 22px; margin-top: 14px; font-size: 14px; color: var(--txt2); }
+    .highlight-box strong { color: #c084fc; }
+    .warning-box { background: rgba(251,191,36,.06); border: 1px solid rgba(251,191,36,.22); border-radius: 10px; padding: 18px 22px; margin-top: 14px; font-size: 14px; color: var(--txt2); }
+    .warning-box strong { color: #fbbf24; }
+
+    /* ── FOOTER ── */
+    .doc-footer { text-align: center; padding: 32px 0; border-top: 1px solid var(--bdr); font-size: 13px; color: var(--txt3); }
+    .doc-footer a { color: var(--txt2); text-decoration: none; }
+    .doc-footer a:hover { color: var(--txt); }
+  </style>
 </head>
 <body>
-<header class="topbar">
-  <div class="container nav">
-    <a class="brand" href="/index.html">
-      <div class="brand-mark">X</div>
-      <span>X Pulse Pro</span>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="XPulseLabs_logo.png" alt="XPulse Labs" />
+      <span>XPulse Labs</span>
     </a>
-    <div class="nav-actions">
-      <div class="lang-switch">
-        <button class="lang-btn" data-setlang="tr" onclick="setLang('tr')">TR</button>
-        <button class="lang-btn" data-setlang="en" onclick="setLang('en')">EN</button>
-      </div>
-      <a class="btn btn-primary" href="/index.html" data-lang="en">← Back to Home</a>
-      <a class="btn btn-primary" href="/index.html" data-lang="tr">← Ana Sayfaya Dön</a>
+    <ul class="nav-links">
+      <li><a href="index.html#products">Products</a></li>
+      <li><a href="index.html#ig-pulse">IG Pulse Pro</a></li>
+      <li><a href="index.html#x-pulse">X Pulse Pro</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#compare">Compare</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn"        data-lang="tr" onclick="setLang('tr')">TR</button>
     </div>
+    <div class="nav-ctas">
+      <a href="https://xpulselabs.gumroad.com/l/wltblu" target="_blank" rel="noopener" class="btn btn-ig" id="nav-buy-ig">Buy IG Pulse Pro</a>
+      <a href="https://xpulselabs.gumroad.com/l/wzfihw" target="_blank" rel="noopener" class="btn btn-x"  id="nav-buy-x">Buy X Pulse Pro</a>
+    </div>
+    <button class="ham" id="hamBtn" aria-label="Menu">☰</button>
   </div>
-</header>
+</nav>
 
-<main class="hero">
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html#products">Products</a>
+  <a href="index.html#ig-pulse">IG Pulse Pro</a>
+  <a href="index.html#x-pulse">X Pulse Pro</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <div class="mob-lang">
+    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn"        data-lang="tr" onclick="setLang('tr')">TR</button>
+  </div>
+  <div class="mob-ctas">
+    <a href="https://xpulselabs.gumroad.com/l/wltblu" target="_blank" rel="noopener" class="btn btn-ig btn-full">Buy IG Pulse Pro</a>
+    <a href="https://xpulselabs.gumroad.com/l/wzfihw" target="_blank" rel="noopener" class="btn btn-x  btn-full">Buy X Pulse Pro</a>
+  </div>
+</div>
+
+<section class="doc-hero">
   <div class="container">
-    <div class="page-card">
-      <div class="eyebrow" data-lang="en">Legal Information</div>
-      <div class="eyebrow" data-lang="tr">Yasal Bilgilendirme</div>
+    <div class="doc-badge" id="hero-badge">Legal</div>
+    <h1 id="hero-title">Terms of Service</h1>
+    <p class="updated" id="hero-updated">Last updated: April 10, 2025 &nbsp;·&nbsp; Applies to IG Pulse Pro &amp; X Pulse Pro</p>
+  </div>
+</section>
 
-      <h1 data-lang="en">Terms and Conditions</h1>
-      <h1 data-lang="tr">Şartlar ve Koşullar</h1>
+<div class="doc-body">
+  <div class="container">
 
-      <p class="lead" data-lang="en">Please read these terms carefully before purchasing, downloading, or using X Pulse Pro.</p>
-      <p class="lead" data-lang="tr">X Pulse Pro’yu satın almadan, indirmeden veya kullanmadan önce lütfen bu şartları dikkatlice okuyun.</p>
-
-      <p class="muted" data-lang="en"><strong>Last updated:</strong> March 2026</p>
-      <p class="muted" data-lang="tr"><strong>Son güncelleme:</strong> Mart 2026</p>
-
-      <section class="section" data-lang="en"><h2>1. Use of the Software</h2><p>X Pulse Pro is a desktop automation tool designed to help users prepare, schedule, and manage their own social media content on X more efficiently.</p><p>You agree to use the software in compliance with applicable laws and platform rules, including X policies.</p></section>
-<section class="section" data-lang="en"><h2>2. License</h2><p>When you purchase a valid plan, you receive a limited, non-exclusive, non-transferable license to use X Pulse Pro.</p><ul><li>You may not resell, redistribute, or share your license key.</li><li>You may not reverse engineer, copy, or modify the software for redistribution.</li></ul></section>
-<section class="section" data-lang="en"><h2>3. Plans, Payments, and Access</h2><p>X Pulse Pro may be sold as a one-time purchase or as a subscription plan, depending on the offer shown at checkout.</p><p>Access is granted after successful payment and may require license activation inside the application.</p></section>
-<section class="section" data-lang="en"><h2>4. No Guarantee of Platform Results</h2><p>We do not guarantee follower growth, engagement, reach, or any specific business result from using the software.</p></section>
-<section class="section" data-lang="en"><h2>5. Third-Party Platforms</h2><p>X Pulse Pro works alongside third-party services such as X. We are not responsible for outages, policy changes, account restrictions, or feature limitations imposed by third-party platforms.</p></section>
-<section class="section" data-lang="en"><h2>6. Updates and Changes</h2><p>We may update the software, pricing, features, and these terms from time to time to improve the product or maintain compliance.</p></section>
-<section class="section" data-lang="en"><h2>7. Contact</h2><p>If you need support or have questions about your license, contact <strong>support@xpulselabs.com</strong>.</p></section>
-      <section class="section" data-lang="tr"><h2>1. Yazılımın Kullanımı</h2><p>X Pulse Pro, kullanıcıların X üzerindeki sosyal medya içeriklerini daha verimli şekilde hazırlamasına, planlamasına ve yönetmesine yardımcı olan bir masaüstü otomasyon aracıdır.</p><p>Yazılımı, yürürlükteki yasalar ve X platform kuralları dahil olmak üzere ilgili kurallara uygun şekilde kullanmayı kabul edersiniz.</p></section>
-<section class="section" data-lang="tr"><h2>2. Lisans</h2><p>Geçerli bir plan satın aldığınızda, size X Pulse Pro kullanımı için sınırlı, münhasır olmayan ve devredilemez bir lisans verilir.</p><ul><li>Lisans anahtarınızı satamaz, paylaşamaz veya yeniden dağıtamazsınız.</li><li>Yazılımı tersine mühendislik ile inceleyemez, kopyalayamaz veya yeniden dağıtım amacıyla değiştiremezsiniz.</li></ul></section>
-<section class="section" data-lang="tr"><h2>3. Planlar, Ödemeler ve Erişim</h2><p>X Pulse Pro, satış sayfasında belirtilen duruma göre tek seferlik satın alma veya abonelik planı olarak sunulabilir.</p><p>Başarılı ödeme sonrasında erişim sağlanır ve uygulama içinde lisans aktivasyonu gerekebilir.</p></section>
-<section class="section" data-lang="tr"><h2>4. Sonuç Garantisi Yoktur</h2><p>Yazılımın kullanımıyla takipçi artışı, etkileşim, erişim veya belirli bir ticari sonuç garanti edilmez.</p></section>
-<section class="section" data-lang="tr"><h2>5. Üçüncü Taraf Platformlar</h2><p>X Pulse Pro, X gibi üçüncü taraf servislerle birlikte çalışır. Üçüncü taraf platformların kesintileri, politika değişiklikleri, hesap kısıtlamaları veya özellik sınırlamaları bizim sorumluluğumuzda değildir.</p></section>
-<section class="section" data-lang="tr"><h2>6. Güncellemeler ve Değişiklikler</h2><p>Ürünü geliştirmek veya uyumluluğu korumak amacıyla yazılımı, fiyatları, özellikleri ve bu şartları zaman zaman güncelleyebiliriz.</p></section>
-<section class="section" data-lang="tr"><h2>7. İletişim</h2><p>Destek veya lisansınızla ilgili sorular için <strong>support@xpulselabs.com</strong> adresine ulaşabilirsiniz.</p></section>
-
-      <div class="callout" data-lang="en">
-        For questions about these terms, privacy, billing, or support, contact us at <strong>support@xpulselabs.com</strong>.
-      </div>
-      <div class="callout" data-lang="tr">
-        Bu metinler, gizlilik, ödeme veya destek ile ilgili sorularınız için bize <strong>support@xpulselabs.com</strong> adresinden ulaşabilirsiniz.
+    <div class="doc-section accent">
+      <h2><span class="ico">📋</span><span data-en="Agreement to Terms" data-tr="Koşulları Kabul">Agreement to Terms</span></h2>
+      <p data-en='By downloading, installing, or using IG Pulse Pro or X Pulse Pro ("the Software") provided by XPulse Labs ("we", "us", "our"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Software.'
+         data-tr='XPulse Labs tarafından sağlanan IG Pulse Pro veya X Pulse Pro yazılımını ("Yazılım") indirerek, yükleyerek veya kullanarak bu Kullanım Koşullarına bağlı kalmayı kabul edersiniz. Kabul etmiyorsanız Yazılımı kullanmayın.'>
+        By downloading, installing, or using IG Pulse Pro or X Pulse Pro ("the Software") provided by XPulse Labs, you agree to be bound by these Terms of Service. If you do not agree, do not use the Software.
+      </p>
+      <div class="highlight-box">
+        <strong data-en="These terms apply to both products:" data-tr="Bu koşullar her iki ürün için geçerlidir:">These terms apply to both products:</strong>
+        <span data-en=" IG Pulse Pro (Instagram automation) and X Pulse Pro (X/Twitter automation), as well as any AI Studio credit packs purchased for use with IG Pulse Pro."
+              data-tr=" IG Pulse Pro (Instagram otomasyonu) ve X Pulse Pro (X/Twitter otomasyonu) ile IG Pulse Pro ile kullanmak için satın alınan AI Studio kredi paketleri.">
+          IG Pulse Pro (Instagram automation) and X Pulse Pro (X/Twitter automation), as well as any AI Studio credit packs purchased for use with IG Pulse Pro.
+        </span>
       </div>
     </div>
-  </div>
-</main>
 
-<footer class="footer">
-  <div class="container">
-    <span data-lang="en">© XPulse Labs — X Pulse Pro</span>
-    <span data-lang="tr">© XPulse Labs — X Pulse Pro</span>
+    <div class="doc-section">
+      <h2><span class="ico">📦</span><span data-en="License Grant" data-tr="Lisans Hakkı">License Grant</span></h2>
+      <p data-en="Subject to your active subscription and compliance with these Terms, XPulse Labs grants you a limited, non-exclusive, non-transferable, revocable license to install and use the Software on a single Windows computer that you own or control."
+         data-tr="Aktif aboneliğinize ve bu Koşullara uymanıza bağlı olarak XPulse Labs, size sahip olduğunuz veya kontrol ettiğiniz tek bir Windows bilgisayarda Yazılımı yüklemek ve kullanmak için sınırlı, münhasır olmayan, devredilemez, iptal edilebilir bir lisans verir.">
+        Subject to your active subscription and compliance with these Terms, XPulse Labs grants you a limited, non-exclusive, non-transferable, revocable license to install and use the Software on a single Windows computer that you own or control.
+      </p>
+      <p data-en="You may not:" data-tr="Şunları yapamazsınız:">You may not:</p>
+      <ul>
+        <li data-en="Share, resell, sublicense, or transfer your license key to another person" data-tr="Lisans anahtarınızı başka bir kişiyle paylaşmak, yeniden satmak, alt lisans vermek veya devretmek">Share, resell, sublicense, or transfer your license key to another person</li>
+        <li data-en="Use a single license on multiple machines simultaneously" data-tr="Tek bir lisansı aynı anda birden fazla makinede kullanmak">Use a single license on multiple machines simultaneously</li>
+        <li data-en="Reverse engineer, decompile, or disassemble the Software" data-tr="Yazılımı tersine mühendislik yapmak, derlemek veya parçalarına ayırmak">Reverse engineer, decompile, or disassemble the Software</li>
+        <li data-en="Create derivative works based on the Software" data-tr="Yazılıma dayalı türev eserler oluşturmak">Create derivative works based on the Software</li>
+        <li data-en="Use the Software for any unlawful purpose" data-tr="Yazılımı herhangi bir yasadışı amaç için kullanmak">Use the Software for any unlawful purpose</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="ico">💳</span><span data-en="Subscriptions &amp; Billing" data-tr="Abonelikler ve Faturalandırma">Subscriptions &amp; Billing</span></h2>
+      <p data-en="The Software is provided on a subscription basis, processed through Gumroad. By subscribing, you agree to the following:"
+         data-tr="Yazılım, Gumroad üzerinden işlenen abonelik bazında sunulmaktadır. Abone olarak aşağıdakileri kabul etmiş olursunuz:">
+        The Software is provided on a subscription basis, processed through Gumroad. By subscribing, you agree to the following:
+      </p>
+      <ul>
+        <li data-en="<strong>Monthly Plans:</strong> Billed every 30 days. You may cancel at any time; the subscription will remain active until the end of the current billing period and will not auto-renew."
+            data-tr="<strong>Aylık Planlar:</strong> Her 30 günde bir faturalandırılır. İstediğiniz zaman iptal edebilirsiniz; abonelik mevcut fatura döneminin sonuna kadar aktif kalır ve otomatik yenilenmez.">
+          <strong>Monthly Plans:</strong> Billed every 30 days. You may cancel at any time; the subscription will remain active until the end of the current billing period and will not auto-renew.
+        </li>
+        <li data-en="<strong>Yearly Plans:</strong> Billed annually. Please review carefully before purchasing, as yearly plans are billed in full upfront."
+            data-tr="<strong>Yıllık Planlar:</strong> Yıllık faturalandırılır. Yıllık planlar peşin olarak faturalandırıldığından satın almadan önce dikkatlice inceleyin.">
+          <strong>Yearly Plans:</strong> Billed annually. Please review carefully before purchasing, as yearly plans are billed in full upfront.
+        </li>
+        <li data-en="<strong>Price Changes:</strong> We reserve the right to change pricing with reasonable notice to existing subscribers."
+            data-tr="<strong>Fiyat Değişiklikleri:</strong> Mevcut abonelere makul bir bildirimde bulunarak fiyatları değiştirme hakkını saklı tutarız.">
+          <strong>Price Changes:</strong> We reserve the right to change pricing with reasonable notice to existing subscribers.
+        </li>
+        <li data-en="<strong>Currency:</strong> Pricing is available in USD and TRY. The features included are identical regardless of currency."
+            data-tr="<strong>Para Birimi:</strong> Fiyatlandırma USD ve TL olarak sunulmaktadır. Para biriminden bağımsız olarak dahil edilen özellikler aynıdır.">
+          <strong>Currency:</strong> Pricing is available in USD and TRY. The features included are identical regardless of currency.
+        </li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="ico">🎨</span><span data-en="AI Studio Credits (IG Pulse Pro)" data-tr="AI Studio Kredileri (IG Pulse Pro)">AI Studio Credits (IG Pulse Pro)</span></h2>
+      <p data-en="AI Studio credit packs are a separate purchase from your subscription and are subject to these additional terms:"
+         data-tr="AI Studio kredi paketleri aboneliğinizden ayrı bir satın alımdır ve şu ek koşullara tabidir:">
+        AI Studio credit packs are a separate purchase from your subscription and are subject to these additional terms:
+      </p>
+      <ul>
+        <li data-en="Credits are <strong>non-refundable</strong> once purchased." data-tr="Krediler satın alındıktan sonra <strong>iade edilmez</strong>.">Credits are <strong>non-refundable</strong> once purchased.</li>
+        <li data-en="Credits <strong>never expire</strong> as long as your account is active." data-tr="Hesabınız aktif olduğu sürece krediler <strong>asla sona ermez</strong>.">Credits <strong>never expire</strong> as long as your account is active.</li>
+        <li data-en="Credits are consumed when you use the AI image or video generation feature and are non-transferable." data-tr="AI görsel veya video üretim özelliğini kullandığınızda krediler tüketilir ve devredilemez.">Credits are consumed when you use the AI image or video generation feature and are non-transferable.</li>
+        <li data-en="Credit amounts consumed per generation may change as underlying AI service costs change. We will communicate significant changes in advance." data-tr="Üretim başına tüketilen kredi miktarları, temel AI hizmet maliyetleri değiştikçe değişebilir. Önemli değişiklikleri önceden bildireceğiz.">Credit amounts consumed per generation may change as underlying AI service costs change. We will communicate significant changes in advance.</li>
+        <li data-en="We do not guarantee the availability of the AI generation service at all times; however, we will not charge credits for failed generations." data-tr="AI üretim hizmetinin her zaman kullanılabilirliğini garanti etmiyoruz; ancak başarısız üretimler için kredi kesmeyeceğiz.">We do not guarantee the availability of the AI generation service at all times; however, we will not charge credits for failed generations.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="ico">🔄</span><span data-en="Refund Policy" data-tr="İade Politikası">Refund Policy</span></h2>
+      <p data-en="We offer refunds under the following conditions:" data-tr="Şu koşullar altında iade sunuyoruz:">We offer refunds under the following conditions:</p>
+      <ul>
+        <li data-en="If the Software fails to function as described and we are unable to resolve the issue within a reasonable timeframe, you may request a refund within 7 days of purchase."
+            data-tr="Yazılım açıklandığı gibi çalışmazsa ve sorunu makul bir süre içinde çözemiyorsak, satın alma tarihinden itibaren 7 gün içinde iade talep edebilirsiniz.">
+          If the Software fails to function as described and we are unable to resolve the issue within a reasonable timeframe, you may request a refund within 7 days of purchase.
+        </li>
+        <li data-en="Refunds are not available for change-of-mind purchases after the first 48 hours of use."
+            data-tr="İlk 48 saat kullanımdan sonra fikir değişikliği nedeniyle iade yapılmamaktadır.">
+          Refunds are not available for change-of-mind purchases after the first 48 hours of use.
+        </li>
+        <li data-en="AI Studio credit packs are non-refundable once purchased."
+            data-tr="AI Studio kredi paketleri satın alındıktan sonra iade edilmez.">
+          AI Studio credit packs are non-refundable once purchased.
+        </li>
+        <li data-en="Yearly plan refunds will be considered on a pro-rated basis for unused months if requested within 14 days of renewal."
+            data-tr="Yıllık plan iadeleri, yenileme tarihinden itibaren 14 gün içinde talep edilmesi durumunda kullanılmayan aylar için orantılı olarak değerlendirilecektir.">
+          Yearly plan refunds will be considered on a pro-rated basis for unused months if requested within 14 days of renewal.
+        </li>
+      </ul>
+      <p data-en='To request a refund, contact <a href="mailto:support@xpulselabs.com" style="color:#c084fc;">support@xpulselabs.com</a> with your order details.'
+         data-tr='İade talebinde bulunmak için sipariş bilgilerinizle <a href="mailto:support@xpulselabs.com" style="color:#c084fc;">support@xpulselabs.com</a> adresine ulaşın.'>
+        To request a refund, contact <a href="mailto:support@xpulselabs.com" style="color:#c084fc;">support@xpulselabs.com</a> with your order details.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="ico">⚠️</span><span data-en="Acceptable Use" data-tr="Kabul Edilebilir Kullanım">Acceptable Use</span></h2>
+      <p data-en="You agree to use the Software responsibly and in compliance with the Terms of Service of Instagram, X (Twitter), and any other platforms you interact with through the Software."
+         data-tr="Yazılımı sorumlu bir şekilde ve Instagram, X (Twitter) ve Yazılım aracılığıyla etkileşimde bulunduğunuz diğer platformların Kullanım Koşullarına uygun olarak kullanmayı kabul edersiniz.">
+        You agree to use the Software responsibly and in compliance with the Terms of Service of Instagram, X (Twitter), and any other platforms you interact with through the Software.
+      </p>
+      <div class="warning-box">
+        <strong data-en="Important:" data-tr="Önemli:">Important:</strong>
+        <span data-en=" XPulse Labs is not responsible for any account restrictions, suspensions, or bans imposed by Instagram or X (Twitter) resulting from your use of the Software. Automation tools carry inherent risks and must be used within each platform's acceptable use guidelines."
+              data-tr=" XPulse Labs, Yazılımın kullanımından kaynaklanan Instagram veya X (Twitter) tarafından uygulanan hesap kısıtlamalarından, askıya almalardan veya yasaklardan sorumlu değildir. Otomasyon araçları doğal riskler taşır ve her platformun kabul edilebilir kullanım yönergelerine uygun kullanılmalıdır.">
+          XPulse Labs is not responsible for any account restrictions, suspensions, or bans imposed by Instagram or X (Twitter) resulting from your use of the Software.
+        </span>
+      </div>
+      <p style="margin-top:14px;" data-en="You agree not to use the Software to:" data-tr="Yazılımı şu amaçlarla kullanmamayı kabul edersiniz:">You agree not to use the Software to:</p>
+      <ul>
+        <li data-en="Distribute spam, misinformation, or harmful content" data-tr="Spam, yanlış bilgi veya zararlı içerik dağıtmak">Distribute spam, misinformation, or harmful content</li>
+        <li data-en="Violate any applicable law or third-party rights" data-tr="Yürürlükteki herhangi bir yasayı veya üçüncü taraf haklarını ihlal etmek">Violate any applicable law or third-party rights</li>
+        <li data-en="Harass, abuse, or harm other users or parties" data-tr="Diğer kullanıcıları veya tarafları taciz etmek, istismar etmek veya zarar vermek">Harass, abuse, or harm other users or parties</li>
+        <li data-en="Attempt to circumvent platform security measures beyond normal browser automation" data-tr="Normal tarayıcı otomasyonunun ötesinde platform güvenlik önlemlerini aşmaya çalışmak">Attempt to circumvent platform security measures beyond normal browser automation</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="ico">🖥️</span><span data-en="System Requirements &amp; Support" data-tr="Sistem Gereksinimleri ve Destek">System Requirements &amp; Support</span></h2>
+      <p data-en="The Software is currently available for <strong>Windows only</strong>. macOS and Linux are not supported. You are responsible for maintaining a compatible system."
+         data-tr="Yazılım şu anda yalnızca <strong>Windows</strong> için mevcuttur. macOS ve Linux desteklenmemektedir. Uyumlu bir sistem sağlamak sizin sorumluluğunuzdadır.">
+        The Software is currently available for <strong>Windows only</strong>. macOS and Linux are not supported.
+      </p>
+      <p data-en="Active subscribers receive all Software updates released during their subscription period. Updates are delivered through an in-app check and must be installed by the user."
+         data-tr="Aktif aboneler, abonelik süreleri boyunca yayımlanan tüm Yazılım güncellemelerini alır. Güncellemeler uygulama içi kontrol aracılığıyla sunulur ve kullanıcı tarafından yüklenmelidir.">
+        Active subscribers receive all Software updates released during their subscription period.
+      </p>
+      <p data-en='Support is available via email at <a href="mailto:support@xpulselabs.com" style="color:#c084fc;">support@xpulselabs.com</a>. We aim to respond within 2 business days.'
+         data-tr='Destek <a href="mailto:support@xpulselabs.com" style="color:#c084fc;">support@xpulselabs.com</a> adresinden e-posta yoluyla sağlanmaktadır. 2 iş günü içinde yanıt vermeyi hedefliyoruz.'>
+        Support is available via email at <a href="mailto:support@xpulselabs.com" style="color:#c084fc;">support@xpulselabs.com</a>. We aim to respond within 2 business days.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="ico">🚫</span><span data-en="Disclaimer of Warranties" data-tr="Garanti Reddi">Disclaimer of Warranties</span></h2>
+      <p data-en='The Software is provided "as is" without warranty of any kind, express or implied. XPulse Labs does not warrant that the Software will be error-free, uninterrupted, or that defects will be corrected. Your use of the Software is at your own risk.'
+         data-tr='Yazılım, açık veya zımni herhangi bir garanti olmaksızın "olduğu gibi" sağlanmaktadır. XPulse Labs, Yazılımın hatasız veya kesintisiz olacağını ya da kusurların düzeltileceğini garanti etmez. Yazılımı kullanmanız kendi riskinizde gerçekleşir.'>
+        The Software is provided "as is" without warranty of any kind, express or implied. Your use of the Software is at your own risk.
+      </p>
+      <p data-en="We are not affiliated with, endorsed by, or sponsored by Instagram, Meta Platforms, X Corp., or any other social media platform."
+         data-tr="Instagram, Meta Platforms, X Corp. veya başka herhangi bir sosyal medya platformu ile bağlantılı değiliz, onlar tarafından onaylanmıyoruz veya desteklenmiyoruz.">
+        We are not affiliated with, endorsed by, or sponsored by Instagram, Meta Platforms, X Corp., or any other social media platform.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="ico">⚖️</span><span data-en="Limitation of Liability" data-tr="Sorumluluk Sınırlaması">Limitation of Liability</span></h2>
+      <p data-en="To the fullest extent permitted by applicable law, XPulse Labs shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the Software."
+         data-tr="Yürürlükteki yasaların izin verdiği azami ölçüde, XPulse Labs, Yazılımı kullanmanızdan veya kullanamamanızdan kaynaklanan dolaylı, tesadüfi, özel, sonuç olarak ortaya çıkan veya cezai zararlardan sorumlu tutulamaz.">
+        To the fullest extent permitted by applicable law, XPulse Labs shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the Software.
+      </p>
+      <p data-en="XPulse Labs's total liability for any claims under these Terms shall not exceed the amount you paid to XPulse Labs in the 12 months prior to the claim."
+         data-tr="XPulse Labs'ın bu Koşullar kapsamındaki toplam sorumluluğu, talebin 12 ay öncesinde XPulse Labs'a ödediğiniz tutarı aşmayacaktır.">
+        XPulse Labs's total liability for any claims under these Terms shall not exceed the amount you paid to XPulse Labs in the 12 months prior to the claim.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="ico">🔚</span><span data-en="Termination" data-tr="Fesih">Termination</span></h2>
+      <p data-en="XPulse Labs reserves the right to suspend or terminate your license immediately if you violate these Terms, misuse the Software, or engage in fraudulent activity. Upon termination, your right to use the Software ceases immediately."
+         data-tr="XPulse Labs, bu Koşulları ihlal etmeniz, Yazılımı kötüye kullanmanız veya sahtecilik faaliyetlerinde bulunmanız durumunda lisansınızı derhal askıya alma veya feshetme hakkını saklı tutar.">
+        XPulse Labs reserves the right to suspend or terminate your license immediately if you violate these Terms, misuse the Software, or engage in fraudulent activity.
+      </p>
+      <p data-en="You may also terminate your use by cancelling your subscription and uninstalling the Software."
+         data-tr="Aboneliğinizi iptal edip Yazılımı kaldırarak kullanımınızı da sonlandırabilirsiniz.">
+        You may also terminate your use by cancelling your subscription and uninstalling the Software.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="ico">📝</span><span data-en="Changes to These Terms" data-tr="Koşullardaki Değişiklikler">Changes to These Terms</span></h2>
+      <p data-en="We may update these Terms from time to time. Continued use of the Software after the effective date of updated Terms constitutes your acceptance. We will make reasonable efforts to notify active subscribers of material changes via email or in-app notification."
+         data-tr="Bu Koşulları zaman zaman güncelleyebiliriz. Güncellenmiş Koşulların yürürlük tarihinden sonra Yazılımı kullanmaya devam etmek kabulünüz anlamına gelir. Aktif aboneleri önemli değişiklikler hakkında e-posta veya uygulama içi bildirimle makul ölçüde bilgilendirmeye çalışacağız.">
+        We may update these Terms from time to time. Continued use of the Software after the effective date of updated Terms constitutes your acceptance.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="ico">✉️</span><span data-en="Contact" data-tr="İletişim">Contact</span></h2>
+      <p data-en="For questions about these Terms or any legal matters:" data-tr="Bu Koşullar veya herhangi bir hukuki konu hakkında sorularınız için:">For questions about these Terms or any legal matters:</p>
+      <p><strong>XPulse Labs</strong><br />
+      <span data-en="Email:" data-tr="E-posta:">Email:</span> <a href="mailto:support@xpulselabs.com" style="color:#c084fc;">support@xpulselabs.com</a></p>
+    </div>
+
+  </div>
+</div>
+
+<footer class="doc-footer">
+  <div class="container-wide">
+    <p>
+      <span data-en="© 2025 XPulse Labs. All rights reserved." data-tr="© 2025 XPulse Labs. Tüm hakları saklıdır.">© 2025 XPulse Labs. All rights reserved.</span>
+      &nbsp;·&nbsp; <a href="index.html" data-en="Home" data-tr="Ana Sayfa">Home</a>
+      &nbsp;·&nbsp; <a href="contact.html" data-en="Contact" data-tr="İletişim">Contact</a>
+      &nbsp;·&nbsp; <a href="terms.html" data-en="Terms of Service" data-tr="Kullanım Koşulları">Terms of Service</a>
+      &nbsp;·&nbsp; <a href="privacy.html" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</a>
+    </p>
   </div>
 </footer>
 
 <script>
-function setLang(lang){
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+  document.getElementById('hamBtn').addEventListener('click', function() {
+    document.getElementById('mobMenu').classList.toggle('open');
   });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.setlang === lang);
-  });
-  localStorage.setItem('xpulse_legal_lang', lang);
-}
-document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('xpulse_legal_lang') || 'en';
-  setLang(saved);
-});
-</script>
 
+  var _lang = 'en';
+  try { var _saved = localStorage.getItem('xpl_lang'); if (_saved) _lang = _saved; } catch(e){}
+
+  function setLang(lang) {
+    _lang = lang;
+    try { localStorage.setItem('xpl_lang', lang); } catch(e) {}
+    document.documentElement.lang = lang === 'tr' ? 'tr' : 'en';
+
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+      el.innerHTML = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
+    });
+
+    var heroTitle = document.getElementById('hero-title');
+    if (heroTitle) heroTitle.textContent = lang === 'tr' ? 'Kullanım Koşulları' : 'Terms of Service';
+    var heroBadge = document.getElementById('hero-badge');
+    if (heroBadge) heroBadge.textContent = lang === 'tr' ? 'Yasal' : 'Legal';
+    var heroUpdated = document.getElementById('hero-updated');
+    if (heroUpdated) heroUpdated.innerHTML = lang === 'tr'
+      ? 'Son güncelleme: 10 Nisan 2025 &nbsp;&middot;&nbsp; IG Pulse Pro ve X Pulse Pro için geçerlidir'
+      : 'Last updated: April 10, 2025 &nbsp;&middot;&nbsp; Applies to IG Pulse Pro &amp; X Pulse Pro';
+
+    var navBuyIg = document.getElementById('nav-buy-ig');
+    if (navBuyIg) navBuyIg.textContent = lang === 'tr' ? 'IG Pulse Pro Satın Al' : 'Buy IG Pulse Pro';
+    var navBuyX = document.getElementById('nav-buy-x');
+    if (navBuyX) navBuyX.textContent = lang === 'tr' ? 'X Pulse Pro Satın Al' : 'Buy X Pulse Pro';
+
+    document.querySelectorAll('.nav-links a, .mob-menu > a').forEach(function(el) {
+      var href = el.getAttribute('href') || '';
+      if (href === 'index.html#products') el.textContent = lang === 'tr' ? 'Ürünler' : 'Products';
+      else if (href === 'index.html#ig-pulse') el.textContent = 'IG Pulse Pro';
+      else if (href === 'index.html#x-pulse') el.textContent = 'X Pulse Pro';
+      else if (href === 'index.html#pricing') el.textContent = lang === 'tr' ? 'Fiyatlandırma' : 'Pricing';
+      else if (href === 'index.html#compare') el.textContent = lang === 'tr' ? 'Karşılaştır' : 'Compare';
+      else if (href === 'index.html#faq') el.textContent = 'FAQ';
+      else if (href === 'contact.html') el.textContent = lang === 'tr' ? 'İletişim' : 'Contact';
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+  }
+
+  if (_lang !== 'en') setLang(_lang);
+</script>
 </body>
 </html>
