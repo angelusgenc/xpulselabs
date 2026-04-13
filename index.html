@@ -207,6 +207,48 @@
       max-width: 580px; margin: 0 auto 52px; font-weight: 400; line-height: 1.72;
     }
     .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+    .hero-demo-video {
+      margin: 60px auto 0;
+      max-width: 900px;
+      width: 100%;
+    }
+    .hero-demo-frame {
+      position: relative;
+      padding-top: 56.25%;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(139,92,246,.25);
+      box-shadow:
+        0 26px 80px rgba(0,0,0,.55),
+        0 0 0 1px rgba(236,72,153,.10),
+        0 0 42px rgba(139,92,246,.18),
+        0 0 72px rgba(236,72,153,.12);
+    }
+    .hero-demo-frame video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+    .hero-demo-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .hero-demo-caption {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--txt2);
+      letter-spacing: .01em;
+    }
 
     .hero-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 640px; margin: 0 auto; }
     .hero-chip {
@@ -556,6 +598,7 @@
       .nav-logo img { width: 32px; height: 32px; }
       .nav-logo span { font-size: 15px; }
 
+      .hero-demo-video { margin-top: 42px; }
       .hero-chips { grid-template-columns: 1fr; max-width: 300px; }
       .hero h1 { font-size: 38px; }
       .hero-ctas { flex-direction: column; align-items: center; }
@@ -655,6 +698,21 @@
         <a href="#" class="btn btn-trial-x btn-lg">⬇ Try X Pulse Pro Free</a>
       </div>
       <p class="trial-note">Full-featured 3-day free trial for each desktop app · No payment required</p>
+      <!-- DEMO VIDEO -->
+      <div class="hero-demo-video">
+        <div class="hero-demo-frame">
+          <iframe
+            src="https://www.youtube.com/embed/5YzIXHmk2Sw"
+            title="IG Pulse Pro Demo"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="hero-demo-caption">Watch how IG Pulse Pro works in real time</p>
+      </div>
+
       <div class="hero-chips">
         <a href="#ig-pulse" class="hero-chip ig">
           <img src="igpulselogo.png" alt="IG Pulse Pro" />
@@ -1401,7 +1459,7 @@
   /* ══════════════════════════════════════════════════════
      TRIAL DOWNLOAD URLS — replace these before publishing
      ══════════════════════════════════════════════════════ */
-  var TRIAL_URL_IG = 'https://github.com/angelusgenc/xpulselabs/releases/download/v1.0.0/IGPulsePro_Setup_1.0.0.zip'; // IG Pulse Pro 3-day trial
+  var TRIAL_URL_IG = 'REPLACE_WITH_IG_PULSE_PRO_TRIAL_DOWNLOAD_URL'; // IG Pulse Pro 3-day trial
   var TRIAL_URL_X  = 'https://github.com/angelusgenc/xpulselabs/releases/download/v1.0/XPulsePro_Setup_v1_0_0.zip';  // X Pulse Pro 3-day trial
   /* ══════════════════════════════════════════════════════ */
 
