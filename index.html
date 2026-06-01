@@ -2037,7 +2037,14 @@ function openXPModal(pkgId){
   document.getElementById('xp-t2').textContent=xpT('t2');
   document.getElementById('xp-t3').textContent=xpT('t3');
   document.getElementById('xp-s-close').textContent=xpT('ok');
-  ['xpd-1','xpd-3','xpd-6','xpd-12'].forEach(function(id,i){var b=document.getElementById(id);if(b)b.childNodes[0].nodeValue=xpT(['d1','d3','d6','d12'][i]);});
+  var durLabels=[xpT('d1'),xpT('d3'),xpT('d6'),xpT('d12')];
+  ['xpd-1','xpd-3','xpd-6','xpd-12'].forEach(function(id,i){
+    var b=document.getElementById(id);
+    if(!b) return;
+    var span=b.querySelector('.xp-dur-save');
+    var saveHtml=span?span.outerHTML:'';
+    b.innerHTML=durLabels[i]+(saveHtml||'');
+  });
   document.getElementById('xp-dur-row').style.display=pkg.base==='cr'?'none':'flex';
   xpSetDur(1);
   document.getElementById('xp-iframe-area').innerHTML='<div class="xp-ph"><div class="xp-ph-icon">&#x1F4B3;</div><h4>'+xpT('phH')+'</h4><p>'+xpT('phP')+'</p></div>';
@@ -2054,16 +2061,12 @@ function openXPModal(pkgId){
 
 function closeXPModal(){
   var ov=document.getElementById('xp-overlay');
+  if(!ov) return;
   ov.classList.remove('animated');
   setTimeout(function(){
     ov.classList.remove('open');
     ov.style.display='none';
     document.body.style.overflow='';
-    // Full reset so next open works
-    document.getElementById('xp-success').classList.remove('active');
-    ['xp-contact','xp-phone','xp-email','xp-address'].forEach(function(id){
-      var el=document.getElementById(id);if(el){el.value='';el.classList.remove('xp-err');}
-    });
   },350);
 }
 function xpOvClick(e){if(e.target===document.getElementById('xp-overlay'))closeXPModal();}
