@@ -1990,7 +1990,7 @@
 </div>
 
 <script>
-var XP_API='https://xpulse-backend-production.up.railway.app';
+var XP_API='https://eceaiappointment-production.up.railway.app';
 var XP_T={
   en:{title:'Purchase',sub:'Fill in your details, then proceed to payment.',n:'Full Name *',p:'Phone *',e:'Email *',a:'Address *',phn:'Your Name',php:'+90 5XX XXX XX XX',phe:'you@email.com',pha:'Street, City, Country',btn:'Proceed to Payment \u2192',load:'Loading...',rgt:'Secure Payment',phH:'Payment Screen',phP:'Fill in your details on the left,<br>the payment form will appear here.',t1:'\uD83D\uDD12 Encrypted',t2:'\uD83D\uDEE1\uFE0F 3D Secure',t3:'\u26A1 Instant Activation',sLic:'Payment Received! \uD83C\uDF89',sCr:'Credits Added! \uD83C\uDF89',mLic:'Your license key has been sent to your email. Thank you!',mCr:'Credits have been added to your account.',d1:'1 Mo',d3:'3 Mo',d6:'6 Mo',d12:'12 Mo',ok:'OK, Close',fail:'Payment Failed',failP:'Check your card details and try again.',retry:'Retry',total:'Total '},
   tr:{title:'Sat\u0131n Al',sub:'Bilgilerini girin, \u00f6deme ekran\u0131 a\u00e7\u0131ls\u0131n.',n:'Ad Soyad *',p:'Telefon *',e:'E-posta *',a:'Adres *',phn:'Ad\u0131n\u0131z Soyad\u0131n\u0131z',php:'05XX XXX XX XX',phe:'siz@email.com',pha:'Mahalle, \u0130l\u00e7e, \u0130l',btn:'\u00d6demeye Ge\u00e7 \u2192',load:'Y\u00fckleniyor...',rgt:'G\u00fcvenli \u00d6deme',phH:'\u00d6deme Ekran\u0131',phP:'Sol taraftaki bilgileri doldurun,<br>\u00f6deme formu burada a\u00e7\u0131lacak.',t1:'\uD83D\uDD12 \u015eifreli',t2:'\uD83D\uDEE1\uFE0F 3D Secure',t3:'\u26A1 An\u0131nda Aktivasyon',sLic:'\u00d6deme Al\u0131nd\u0131! \uD83C\uDF89',sCr:'Krediler Eklendi! \uD83C\uDF89',mLic:'Lisans anahtar\u0131n\u0131z e-posta adresinize g\u00f6nderildi.',mCr:'Kredileriniz hesab\u0131n\u0131za tan\u0131mland\u0131.',d1:'1 Ay',d3:'3 Ay',d6:'6 Ay',d12:'12 Ay',ok:'Tamam, Kapat',fail:'\u00d6deme Ba\u015far\u0131s\u0131z',failP:'Kart bilgilerinizi kontrol edip tekrar deneyin.',retry:'Tekrar Dene',total:'Toplam '}
@@ -2037,14 +2037,17 @@ function openXPModal(pkgId){
   document.getElementById('xp-t2').textContent=xpT('t2');
   document.getElementById('xp-t3').textContent=xpT('t3');
   document.getElementById('xp-s-close').textContent=xpT('ok');
-  var durLabels=[xpT('d1'),xpT('d3'),xpT('d6'),xpT('d12')];
-  ['xpd-1','xpd-3','xpd-6','xpd-12'].forEach(function(id,i){
-    var b=document.getElementById(id);
-    if(!b) return;
-    var span=b.querySelector('.xp-dur-save');
-    var saveHtml=span?span.outerHTML:'';
-    b.innerHTML=durLabels[i]+(saveHtml||'');
-  });
+  var pkg=XP_PKGS[pkgId];
+  if(pkg && pkg.base!=='cr') {
+    var durLabels=[xpT('d1'),xpT('d3'),xpT('d6'),xpT('d12')];
+    ['xpd-1','xpd-3','xpd-6','xpd-12'].forEach(function(id,i){
+      var b=document.getElementById(id);
+      if(!b) return;
+      var span=b.querySelector('.xp-dur-save');
+      var saveHtml=span?span.outerHTML:'';
+      b.innerHTML=durLabels[i]+(saveHtml||'');
+    });
+  }
   document.getElementById('xp-dur-row').style.display=pkg.base==='cr'?'none':'flex';
   xpSetDur(1);
   document.getElementById('xp-iframe-area').innerHTML='<div class="xp-ph"><div class="xp-ph-icon">&#x1F4B3;</div><h4>'+xpT('phH')+'</h4><p>'+xpT('phP')+'</p></div>';
